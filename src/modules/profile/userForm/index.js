@@ -69,15 +69,8 @@ export default function UserForm() {
       form.setFieldsValue({
         email: userNeedUpdate.email,
         blood: "AB+",
-        first_name: userNeedUpdate.first_name,
-        last_name: userNeedUpdate.last_name,
+        name: userNeedUpdate.name,
         phone: userNeedUpdate.phone,
-        date_of_birth: moment(userNeedUpdate.date_of_birth),
-        gender:
-          userNeedUpdate.gender.charAt(0).toUpperCase() +
-          userNeedUpdate.gender.slice(1),
-        state: userNeedUpdate.state,
-        city: userNeedUpdate.city,
         address: userNeedUpdate.address,
       });
     }

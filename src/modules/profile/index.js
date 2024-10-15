@@ -28,13 +28,13 @@ export default function MyProfile() {
                     className="avatar"
                     src={
                       Object.keys(currentUser).length > 0
-                        ? `${process.env.REACT_APP_API_URL}/${currentUser.avatar[0].url}`
+                        ? currentUser.url[0].url
                         : ""
                     }
                     alt="avatar"
                   />
                   <h3 className="name">
-                    {currentUser.first_name} {currentUser.last_name}
+                    {currentUser.name}
                   </h3>
                 </div>
                 <ul className="sidebar-list">
