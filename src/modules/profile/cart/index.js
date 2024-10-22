@@ -22,6 +22,7 @@ export default function Cart() {
 
   useEffect(() => {
     dispatch(fetchCart());
+    console.log('cart', cart)
   }, [dispatch]);
 
   const handleOnChangeAmount = (amount, item) => {
@@ -67,20 +68,23 @@ export default function Cart() {
       </div>
     </div>
   );
-
+  
+  console.log(cart)
   return (
     <div className="cart-container">
       <div className="cart-content">
         {cart && Object.keys(cart).length > 0 &&
           cart.map((item, index) => (
-            <div key={item.product.title + index} className="cart-item">
-              <img
+            <div key={item.id + index} className="cart-item">
+              {/* <img
                 alt="cover book"
                 className="img"
                 src={`${process.env.REACT_APP_API_URL}/documents/${item.product.documents[0].document}`}
-              />
-              <h3 className="name">{item.product.title}</h3>
-              <h4 className="price">₫{item.product.price}</h4>
+              /> */}
+              {/* <h3 className="name">{item.product.title}</h3> */}
+              <h3 className="name">123</h3>
+
+              <h4 className="price">₫{item.price}</h4>
               <div className="quantity-container">
                 <Button
                   onClick={() => handleOnChangeAmount(item.amount - 1, item)}
@@ -93,7 +97,7 @@ export default function Cart() {
                 <div className="quantity-input-container">
                   <InputNumber
                     min={0}
-                    max={item.product.amount}
+                    max={item.amount}
                     value={item.amount}
                     controls={false}
                     className="input-quantity"
@@ -108,7 +112,7 @@ export default function Cart() {
                   <AiOutlinePlus className="icon" />
                 </Button>
               </div>
-              <h4 className="total">₫{item.product.price * item.amount}</h4>
+              <h4 className="total">₫{item.price * item.amount}</h4>
               <Button
                 className="button button--text--red"
                 type="button"

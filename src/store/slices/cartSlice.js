@@ -17,7 +17,7 @@ export const addItemToCart = createAsyncThunk(
 export const fetchCart = createAsyncThunk("cartSlice/fetchCart", async () => {
   try {
     const result = await cartAPI.fetchCart();
-    return result.data.data;
+    return result.data;
   } catch (error) {
     return Promise.reject(error.message);
   }
@@ -33,7 +33,7 @@ export const updateItemInCart = createAsyncThunk(
         cart_id: item.cart_id,
       });
       return {
-        data: result.data.data,
+        data: result.data,
         item: {
           ...item,
           amount: amount,

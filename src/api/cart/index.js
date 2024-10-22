@@ -1,24 +1,24 @@
 import axiosClient from "../axios.config";
 
 const cartAPI = {
-  fetchCart() {
-    const url = `/project/cart`;
+  fetchCart(userId) {
+    const url = `/carts`;
     return axiosClient.get(url);
   },
   addItem(newItem) {
-    const url = `/project/cart`;
+    const url = `/carts`;
     return axiosClient.post(url, newItem);
   },
   removeItem(cart_id) {
-    const url = `/project/cart/${cart_id}`;
+    const url = `/carts/${cart_id}`;
     return axiosClient.delete(url);
   },
   updateItem(data) {
-    const url = `/project/cart`;
+    const url = `/carts`;
     return axiosClient.put(url, data);
   },
   deleteItem(cart_id) {
-    const url = `/project/cart/${cart_id}`;
+    const url = `/carts/${cart_id}`;
     return axiosClient.delete(url);
   },
 };

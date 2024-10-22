@@ -120,18 +120,18 @@ export default function BookDetail() {
                     }
                     alt="current product"
                   />
-                  <div className="image-list">
+                  {/* <div className="image-list">
                     {productNeedUpdate.documents &&
                       productNeedUpdate.documents.length > 0 &&
                       productNeedUpdate.documents.map((src, index) => (
                         <img
-                          key={src.document + index}
+                          key={productNeedUpdate.document + }
                           className="image-item"
                           alt="remain img current"
                           src={`${process.env.REACT_APP_API_image}/documents/${src.document}`}
                         />
                       ))}
-                  </div>
+                  </div> */}
                 </div>
               </Col>
               <Col xl={16}>

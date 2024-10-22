@@ -14,7 +14,7 @@ const bookAPI = {
     return axiosClient.get(url);
   },
   getNewest() {
-    const url = `/project/product`;
+    const url = `/products`;
     return axiosClient.get(url);
   },
   getOne(book_id) {
