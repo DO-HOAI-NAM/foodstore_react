@@ -9,7 +9,7 @@ const userAPI = {
     });
   },
   signUp(newPatient) {
-    const url = `/project/customer`;
+    const url = `/users`;
     return axiosClient.post(url, newPatient);
   },
   getOne(id) {
@@ -25,13 +25,13 @@ const userAPI = {
     return axiosClient.get(url);
   },
   update(newInformation) {
-    const url = `/project/customer`;
+    const url = `/users`;
     return axiosClient.put(url, newInformation, {
       headers: { "Content-Type": "multipart/form-data" },
     });
   },
   changePassword(password) {
-    const url = `/project/customer/password`;
+    const url = `/users/password`;
     return axiosClient.put(url, password);
   },
 };

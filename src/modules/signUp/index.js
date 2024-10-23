@@ -48,13 +48,15 @@ export default function SignUpForm() {
 
   const handleSubmit = (values) => {
     const newPatient = {
-      first_name: values.first_name,
-      last_name: values.last_name,
+      name: values.last_name + " " +values.first_name,
       email: values.email,
       phone: values.phone,
       password: values.password,
       date_of_birth: moment(values.date_of_birth).format("YYYY-MM-DD"),
       gender: values.gender,
+      type: 'public',
+      address: 'Hanoi',
+      url: '',
     };
 
     dispatch(signUp(newPatient));
@@ -237,9 +239,8 @@ export default function SignUpForm() {
                     ]}
                   >
                     <Radio.Group className="input input-radio">
-                      <Radio value="Female">Female</Radio>
-                      <Radio value="Male">Male</Radio>
-                      <Radio value="Other">Other</Radio>
+                      <Radio value={true}>Female</Radio>
+                      <Radio value={false}>Male</Radio>
                     </Radio.Group>
                   </Form.Item>
 
