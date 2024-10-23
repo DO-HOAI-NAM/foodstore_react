@@ -14,11 +14,11 @@ const orderAPI = {
     return axiosClient.get(url);
   },
   getWatch() {
-    const url = `/project/watch`;
+    const url = `/watchs`;
     return axiosClient.get(url);
   },
   getFavorite() {
-    const url = `/project/favorite`;
+    const url = `/favorites`;
     return axiosClient.get(url);
   },
   confirmPayment(payment) {

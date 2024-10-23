@@ -22,7 +22,7 @@ const bookAPI = {
     return axiosClient.get(url);
   },
   addWatch(book) {
-    const url = `/project/watch`;
+    const url = `/watchs`;
     return axiosClient.post(url, book);
   },
   addFavorite(book) {
@@ -38,15 +38,15 @@ const bookAPI = {
     return axiosClient.post(url, data);
   },
   getAllCategory() {
-    const url = `project/category`;
+    const url = `/category`;
     return axiosClient.get(url);
   },
   checkFavorite() {
-    const url = `/project/favorite`;
+    const url = `/favorites`;
     return axiosClient.get(url);
   },
   checkWatch() {
-    const url = `/project/watch`;
+    const url = `/watchs`;
     return axiosClient.get(url);
   },
 };

@@ -7,7 +7,7 @@ export const fetchClinics = createAsyncThunk(
   async () => {
     try {
       const result = await clinicAPI.getAll();
-      return result.data.data;
+      return result.data;
     } catch (error) {
       return Promise.reject(error.message);
     }
@@ -19,7 +19,7 @@ export const fetchClinic = createAsyncThunk(
   async (clinic_id) => {
     try {
       const result = await clinicAPI.getOne(clinic_id);
-      return result.data.data;
+      return result.data;
     } catch (error) {
       return Promise.reject(error.message);
     }
@@ -31,7 +31,7 @@ export const fetchDoctorsClinic = createAsyncThunk(
   async (clinic_id) => {
     try {
       const result = await clinicAPI.getDoctors(clinic_id);
-      return result.data.data;
+      return result.data;
     } catch (err) {
       return Promise.reject(err.message);
     }
@@ -43,7 +43,7 @@ export const fetchCategoriesByClinic = createAsyncThunk(
   async (clinic_id) => {
     try {
       const result = await clinicAPI.getCategories(clinic_id);
-      return result.data.data;
+      return result.data;
     } catch (err) {
       return Promise.reject(err.message);
     }

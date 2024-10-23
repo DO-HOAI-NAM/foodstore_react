@@ -10,13 +10,13 @@ export const signIn = createAsyncThunk(
       if (!result.data) {
         return Promise.reject(result.response.data.errors[0]);
       }
-      const accessToken = result.data.accessToken;
+      const accessToken = result.dataaccessToken;
       localStorage.setItem("accessToken", accessToken);
-      console.log('resullt', result.data.user)
+      console.log('resullt', result.datauser)
       console.log('resullt', accessToken)
 
       // Get information of current user after getting token
-      const currentUser = await userAPI.getOne(result.data.user.sub);
+      const currentUser = await userAPI.getOne(result.datauser.sub);
       console.log('get user', currentUser);
       localStorage.setItem(
         "currentUser",
@@ -32,7 +32,7 @@ export const signIn = createAsyncThunk(
 export const signUp = createAsyncThunk("usersSlice/signUp", async (patient) => {
   try {
     const result = await userAPI.signUp(patient);
-    return result.data.data;
+    return result.data;
   } catch (error) {
     return Promise.reject(error);
   }
@@ -41,7 +41,7 @@ export const signUp = createAsyncThunk("usersSlice/signUp", async (patient) => {
 export const verify = createAsyncThunk("usersSlice/verify", async (code) => {
   try {
     const result = await userAPI.verify(code);
-    if (result.data.data.is_verified === 1) {
+    if (result.data.is_verified === 1) {
       const clonecurrentPatient = JSON.parse(
         localStorage.getItem("currentPatient")
       );
@@ -50,7 +50,7 @@ export const verify = createAsyncThunk("usersSlice/verify", async (code) => {
         "currentPatient",
         JSON.stringify(clonecurrentPatient)
       );
-      return result.data.data.is_verified;
+      return result.data.is_verified;
     }
   } catch (error) {
     return Promise.reject(error.message);
@@ -62,7 +62,7 @@ export const resendCode = createAsyncThunk(
   async () => {
     try {
       const result = await userAPI.resendCode();
-      return result.data.data;
+      return result.data;
     } catch (error) {
       return Promise.reject(error.message);
     }
@@ -74,7 +74,7 @@ export const updateInformation = createAsyncThunk(
   async (newInformation) => {
     try {
       const result = await userAPI.update(newInformation);
-      return result.data.data;
+      return result.data;
     } catch (error) {
       return Promise.reject(error);
     }
@@ -95,7 +95,7 @@ export const getIdentity = createAsyncThunk(
       );
       console.log('test', result)
 
-      return result.data.data;
+      return result.data;
     } catch (error) {
       return Promise.reject();
     }
@@ -107,7 +107,7 @@ export const changePassword = createAsyncThunk(
   async (password) => {
     try {
       const result = await userAPI.changePassword(password);
-      return result.data.data;
+      return result.data;
     } catch (error) {
       return Promise.reject(error.message);
     }

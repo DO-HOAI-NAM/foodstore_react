@@ -7,7 +7,7 @@ export const fetchPayments = createAsyncThunk(
   async () => {
     try {
       const result = await orderAPI.getAll();
-      return result.data.data;
+      return result.data;
     } catch (error) {
       return Promise.reject(error.message);
     }
@@ -19,7 +19,7 @@ export const fetchWatch = createAsyncThunk(
   async () => {
     try {
       const result = await orderAPI.getWatch();
-      return result.data.data;
+      return result.data;
     } catch (error) {
       return Promise.reject(error.message);
     }
@@ -31,7 +31,7 @@ export const fetchFavorite = createAsyncThunk(
   async () => {
     try {
       const result = await orderAPI.getFavorite();
-      return result.data.data;
+      return result.data;
     } catch (error) {
       return Promise.reject(error.message);
     }
@@ -43,7 +43,7 @@ export const fetchPayment = createAsyncThunk(
   async (order_id) => {
     try {
       const result = await orderAPI.getOne(order_id);
-      return result.data.data;
+      return result.data;
     } catch (error) {
       return Promise.reject(error.message);
     }
@@ -55,7 +55,7 @@ export const fetchDetails = createAsyncThunk(
   async (order_id) => {
     try {
       const result = await orderAPI.getDetails(order_id);
-      return result.data.data;
+      return result.data;
     } catch (error) {
       return Promise.reject(error.message);
     }
@@ -69,7 +69,7 @@ export const createPayment = createAsyncThunk(
   async () => {
     try {
       const result = await orderAPI.addPayment();
-      return result.data.data;
+      return result.data;
     } catch (error) {
       return Promise.reject(error.message);
     }
@@ -81,7 +81,7 @@ export const confirmPayment = createAsyncThunk(
   async (payment) => {
     try {
       const result = await orderAPI.confirmPayment(payment);
-      return result.data.data;
+      return result.data;
     } catch (error) {
       return Promise.reject(error.message);
     }

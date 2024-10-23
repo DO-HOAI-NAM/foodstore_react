@@ -9,7 +9,7 @@ export const bookAppointment = createAsyncThunk(
       const { newAppointment, nextStep } = data;
       const result = await appointmentAPI.book(newAppointment);
       return {
-        result: result.data.data,
+        result: result.data,
         nextStep,
       };
     } catch (error) {
@@ -23,7 +23,7 @@ export const fetchAppointments = createAsyncThunk(
   async () => {
     try {
       const result = await appointmentAPI.getAll();
-      return result.data.data;
+      return result.data;
     } catch (error) {
       return Promise.reject(error.message);
     }

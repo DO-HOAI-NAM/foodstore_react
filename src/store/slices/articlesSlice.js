@@ -7,7 +7,7 @@ export const fetchTags = createAsyncThunk(
   async () => {
     try {
       const result = await articleAPI.getTags();
-      return result.data.data;
+      return result.data;
     } catch (error) {
       return Promise.reject(error.message);
     }
@@ -19,7 +19,7 @@ export const fetchTypes = createAsyncThunk(
   async () => {
     try {
       const result = await articleAPI.getTypes();
-      return result.data.data;
+      return result.data;
     } catch (error) {
       return Promise.reject(error.message);
     }
@@ -31,7 +31,7 @@ export const fetchArticles = createAsyncThunk(
   async (page) => {
     try {
       const result = await articleAPI.getAll(page);
-      return result.data.data;
+      return result.data;
     } catch (error) {
       return Promise.reject(error.message);
     }
@@ -43,7 +43,7 @@ export const fetchArticle = createAsyncThunk(
   async (slug) => {
     try {
       const result = await articleAPI.getOne(slug);
-      return result.data.data;
+      return result.data;
     } catch (error) {
       return Promise.reject(error.message);
     }
@@ -55,7 +55,7 @@ export const fetchArticlesLatest = createAsyncThunk(
   async (slug) => {
     try {
       const result = await articleAPI.getLastest(slug);
-      return result.data.data;
+      return result.data;
     } catch (error) {
       return Promise.reject(error.message);
     }
@@ -68,7 +68,7 @@ export const fetchArticlesByTag = createAsyncThunk(
     try {
       const { tag_id, pages } = info;
       const result = await articleAPI.getByTag(tag_id, pages);
-      return result.data.data;
+      return result.data;
     } catch (error) {
       return Promise.reject();
     }
@@ -81,7 +81,7 @@ export const fetchArticlesByType = createAsyncThunk(
     try {
       const { type_id, pages } = info;
       const result = await articleAPI.getByType(type_id, pages);
-      return result.data.data;
+      return result.data;
     } catch (error) {
       return Promise.reject();
     }

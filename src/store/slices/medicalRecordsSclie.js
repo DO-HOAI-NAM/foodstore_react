@@ -7,7 +7,7 @@ export const fetchMedicalRecords = createAsyncThunk(
   async (patient_id) => {
     try {
       const result = await medicalRecordAPI.getAll(patient_id);
-      return result.data.data;
+      return result.data;
     } catch (error) {
       return Promise.reject(error.message);
     }
@@ -19,7 +19,7 @@ export const fetchMedicalRecord = createAsyncThunk(
   async (record_id) => {
     try {
       const result = await medicalRecordAPI.getOne(record_id);
-      return result.data.data;
+      return result.data;
     } catch (error) {
       return Promise.reject(error.message);
     }
