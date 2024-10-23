@@ -78,11 +78,14 @@ export default function BookDetail() {
     setQuantity((prev) => prev + 1);
   };
 
+  console.log('productNeedUpdate', productNeedUpdate);
+console.log('currentUser', currentUser)
   const handleAddToCart = () => {
     const data = {
       amount: quantity,
-      product_id: productNeedUpdate.product_id,
-      user_id: currentUser.user_id,
+      product_id: productNeedUpdate.id,
+      price: parseFloat(productNeedUpdate.price),
+      user_id: currentUser.data.id,
     };
     dispatch(addItemToCart(data));
     window.location.reload(false);

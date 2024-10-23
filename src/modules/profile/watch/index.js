@@ -16,23 +16,32 @@ import { Link } from 'react-router-dom';
 
 export default function Watch() {
   const dispatch = useDispatch();
-  const payments = useSelector(selectWatches);
+  const watch = useSelector(selectWatches);
   // const isLoading = useSelector(selectWatchIsLoading);
 
   useEffect(() => {
     dispatch(fetchWatch());
   }, [dispatch]);
 
-  const paymentColumns = [
+  console.log('watch', watch)
+  const watchColumns = [
     {
       title: 'Watch ID',
       key: 'ID',
-      dataIndex: 'watch_id',
+      dataIndex: 'id',
     },
     {
       title: 'Product Name',
       key: 'Product_Name',
-      dataIndex: 'product.title',
+      dataIndex: 'product_name',
+    },
+    {
+      title: 'Thumnail',
+      key: 'Product_Image',
+      dataIndex: 'product_image',
+      width: '20%',
+      height: '100',
+      render: Product_Image => <img style={{ width: '50%'}} alt={Product_Image} src={Product_Image} />
     },
     {
       title: 'Created Date',
@@ -54,6 +63,8 @@ export default function Watch() {
     },
   ];
 
+  console.log(watch);
+
   return (
     <Table
       rowClassName="payment-row"
@@ -63,8 +74,8 @@ export default function Watch() {
       pagination={{
         position: ['bottomCenter'],
       }}
-      columns={paymentColumns}
-      dataSource={payments}
+      columns={watchColumns}
+      dataSource={watch}
       rowKey={(record) => record.order_id}
     />
   );

@@ -67,18 +67,18 @@ export default function PaymentDetail() {
     {
       title: "Book Name",
       index: "product_name",
-      dataIndex: "title",
+      dataIndex: "product_name",
     },
     {
       title: "Quantity",
       index: "amount",
       dataIndex: "amount",
     },
-    {
-      title: "VAT",
-      index: "vat",
-      render: (record) => VAT,
-    },
+    // {
+    //   title: "VAT",
+    //   index: "vat",
+    //   render: (record) => VAT,
+    // },
     {
       title: "Price",
       index: "price",
@@ -149,9 +149,9 @@ export default function PaymentDetail() {
                       {user.full_name ?? "Thu Hoa"}{" "}
                       {user.address ?? "Khoai Chau"}
                       {", "}
-                      {user.state ?? "TP Hung Yen"}
+                      {user.state ?? "Thanh Xuan"}
                       {", "}
-                      {user.city ?? "Hung Yen"}
+                      {user.city ?? "Viet name"}
                     </p>
                   </div>
                 </Col>

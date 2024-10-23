@@ -10,13 +10,11 @@ export const signIn = createAsyncThunk(
       if (!result.data) {
         return Promise.reject(result.response.data.errors[0]);
       }
-      const accessToken = result.dataaccessToken;
+      const accessToken = result.data.accessToken;
       localStorage.setItem("accessToken", accessToken);
-      console.log('resullt', result.datauser)
-      console.log('resullt', accessToken)
 
       // Get information of current user after getting token
-      const currentUser = await userAPI.getOne(result.datauser.sub);
+      const currentUser = await userAPI.getOne(result.data.user.sub);
       console.log('get user', currentUser);
       localStorage.setItem(
         "currentUser",

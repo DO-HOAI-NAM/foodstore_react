@@ -2,15 +2,15 @@ import axiosClient from "../axios.config";
 
 const orderAPI = {
   getAll() {
-    const url = `/project/order`;
+    const url = `/orders`;
     return axiosClient.get(url);
   },
   getOne(order_id) {
-    const url = `/project/order/${order_id}`;
+    const url = `/orders/${order_id}`;
     return axiosClient.get(url);
   },
-  getDetails(order_id) {
-    const url = `/project/detail/${order_id}`;
+  getDetails(id) {
+    const url = `/details/${id}`;
     return axiosClient.get(url);
   },
   getWatch() {
@@ -27,7 +27,7 @@ const orderAPI = {
   },
   // Book store
   addPayment() {
-    const url = `/project/order`;
+    const url = `/orders`;
     return axiosClient.post(url);
   },
   confirmPayment(payment) {

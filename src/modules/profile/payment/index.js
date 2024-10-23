@@ -27,7 +27,7 @@ export default function PaymentList() {
     {
       title: 'Order ID',
       key: 'ID',
-      dataIndex: 'order_id',
+      dataIndex: 'id',
     },
     {
       title: 'User ID',
@@ -39,16 +39,16 @@ export default function PaymentList() {
       key: 'created date',
       render: (record) => formatDateAndTime(record.created_date),
     },
-    {
-      title: 'Paid On',
-      key: 'paid on',
-      render: (record) =>
-        !record.paid_on ? '' : formatDateAndTime(record.created_date),
-    },
+    // {
+    //   title: 'Paid On',
+    //   key: 'paid on',
+    //   render: (record) =>
+    //     !record.status ? 0 : formatDateAndTime(record.created_date),
+    // },
     {
       title: 'Status',
       key: 'status',
-      render: (record) => <Tag status={record.status}></Tag>,
+      render: (record) => <Tag status={record.status ? 0 : 'CREATED' ?? 'RESOLVE'}></Tag>,
     },
     {
       title: 'Actions',
@@ -56,7 +56,7 @@ export default function PaymentList() {
       render: (record) => (
         <div className="button-container">
           <Link
-            to={`/payment/view/${record.order_id}`}
+            to={`/payment/view/${record.id}`}
             className="button button--blue--dark square"
           >
             <ImEye className="icon" />

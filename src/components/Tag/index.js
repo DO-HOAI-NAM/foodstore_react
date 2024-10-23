@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 
 export default function Tag({ status }) {
   const [statusTag, setStatusTag] = useState();
+  console.log('status', status);
   useEffect(() => {
     switch (status) {
-      case 'received' || 'Received':
+      case 'CREATED':
         setStatusTag('tag--received');
         break;
       case 'canceled' || 'Canceled':
@@ -22,7 +23,7 @@ export default function Tag({ status }) {
       case 'waiting' || 'Waiting':
         setStatusTag('tag--waiting');
         break;
-      case 'resolved' || 'Resolved':
+      case 'RESOLVED':
         setStatusTag('tag--resolved');
         break;
       default:

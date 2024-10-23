@@ -67,11 +67,11 @@ export default function UserForm() {
   useEffect(() => {
     if (Object.keys(userNeedUpdate).length > 0) {
       form.setFieldsValue({
-        email: userNeedUpdate.email,
+        email: userNeedUpdate.data.email,
         blood: "AB+",
-        name: userNeedUpdate.name,
-        phone: userNeedUpdate.phone,
-        address: userNeedUpdate.address,
+        name: userNeedUpdate.data.name,
+        phone: userNeedUpdate.data.phone,
+        address: userNeedUpdate.data.address,
       });
     }
   }, [form, userNeedUpdate]);
@@ -89,23 +89,18 @@ export default function UserForm() {
     setPreview({ ...preview, isOpen: false });
   };
 
+  console.log('userNeedUpdate', userNeedUpdate);
   const handleSubmit = (values) => {
     const formData = new FormData();
-    formData.append("first_name", values.first_name);
-    formData.append("last_name", values.last_name);
-    formData.append("full_name", `${values.first_name} ${values.last_name}`);
-    formData.append("email", values.email);
+    formData.append("name", values.last_name);
     formData.append("phone", `${values.phone}`);
     formData.append("gender", values.gender);
-    formData.append("state", values.state);
-    formData.append("city", values.city);
-    formData.append("address", values.address);
     formData.append("date_of_birth", values.date_of_birth.format("YYYY-MM-DD"));
     if (oldImage) {
       formData.append("old_image", oldImage);
       formData.append("avatar", avatar[0]);
     }
-    formData.append("patient_id", userNeedUpdate.patient_id);
+    formData.append("user_id", userNeedUpdate.data.id);
 
     dispatch(updateInformation(formData));
     dispatch(getIdentity());
@@ -144,23 +139,9 @@ export default function UserForm() {
               label="Email"
               name="email"
             >
-              <Input disabled className="input" placeholder="abc@gmail.com" />
+              <Input disabled className="input" placeholder={userNeedUpdate.data.email}/>
             </Form.Item>
 
-            {/* First Name */}
-            <Form.Item
-              className="form-input-group"
-              rules={[
-                {
-                  required: true,
-                  message: "Please enter your first name!",
-                },
-              ]}
-              label="First Name"
-              name="first_name"
-            >
-              <Input className="input" placeholder="First Name" />
-            </Form.Item>
 
             {/* Last Name */}
             <Form.Item
@@ -171,10 +152,10 @@ export default function UserForm() {
                   message: "Please enter your last name!",
                 },
               ]}
-              label="Last Name"
+              label="Name Name"
               name="last_name"
             >
-              <Input className="input" placeholder="Last Name" />
+              <Input className="input" placeholder={userNeedUpdate.data.name} />
             </Form.Item>
 
             {/* Phone */}
@@ -189,28 +170,11 @@ export default function UserForm() {
               label="Phone"
               name="phone"
             >
-              <Input className="input" placeholder="19908198" />
+              <Input className="input" placeholder={userNeedUpdate.data.phone}  />
             </Form.Item>
           </Col>
           <Col className="right" sm={24} md={12} lg={12} xl={12} xll={12}>
             {/* Blood group */}
-
-            {/* Date of birth */}
-            <Form.Item
-              className="form-input-group"
-              label="Date of birth"
-              name="date_of_birth"
-              rules={[
-                { required: true, message: "Please enter your date of brith" },
-              ]}
-            >
-              <DatePicker
-                className="input"
-                style={{ padding: "12px 20px" }}
-                allowClear={false}
-                format="DD-MM-YYYY"
-              />
-            </Form.Item>
 
             {/* Gender */}
             <Form.Item

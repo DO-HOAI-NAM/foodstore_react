@@ -8,39 +8,39 @@ import Button from '../../../components/Button';
 import {
   fetchFavorite,
   selectFavorites,
-  // selectWatchIsLoading,
+  // selectfavoriteIsLoading,
 } from '../../../store/slices/paymentsSlice';
 import { formatDateAndTime } from '../../../helpers/formatDate';
 import { Link } from 'react-router-dom';
 import { deleteItemInCart } from '../../../store/slices/cartSlice';
 
-export default function Watch() {
+export default function Favorite() {
   const dispatch = useDispatch();
-  const payments = useSelector(selectFavorites);
-  // const isLoading = useSelector(selectWatchIsLoading);
+  const favorites = useSelector(selectFavorites);
+  // const isLoading = useSelector(selectfavoriteIsLoading);
 
   useEffect(() => {
     dispatch(fetchFavorite());
   }, [dispatch]);
 
-  const paymentColumns = [
+  const favoriteColumns = [
     {
-      title: 'Favorite ID',
+      title: 'favorite ID',
       key: 'ID',
-      dataIndex: 'favorite_id',
+      dataIndex: 'id',
     },
     {
       title: 'Product Name',
       key: 'Product_Name',
-      dataIndex: 'product.title',
+      dataIndex: 'product_name',
     },
     {
       title: 'Thumnail',
       key: 'Product_Image',
-      dataIndex: 'product.documents.document',
+      dataIndex: 'product_image',
       width: '20%',
       height: '100',
-      render: Product_Image => <img style={{ width: '50%'}} alt={Product_Image} src={`${process.env.REACT_APP_API_URL}/documents/${Product_Image}`} />
+      render: Product_Image => <img style={{ width: '50%'}} alt={Product_Image} src={Product_Image} />
     },
     {
       title: 'Created Date',
@@ -52,12 +52,12 @@ export default function Watch() {
       key: 'actions',
       render: (record) => (
         <div className="button-container">
-          <Button
-            className="button button--main--book rounded"
-          >
-            Delete
-        </Button>
-        </div>
+        <Button
+          className="button button--main--book rounded"
+        >
+          Delete
+      </Button>
+      </div>
       ),
     },
   ];
@@ -71,8 +71,8 @@ export default function Watch() {
       pagination={{
         position: ['bottomCenter'],
       }}
-      columns={paymentColumns}
-      dataSource={payments}
+      columns={favoriteColumns}
+      dataSource={favorites}
       rowKey={(record) => record.order_id}
     />
   );

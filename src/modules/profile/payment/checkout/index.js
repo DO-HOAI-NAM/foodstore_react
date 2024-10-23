@@ -98,19 +98,6 @@ export default function Checkout() {
                       xxl={12}
                     >
                       {/* First Name */}
-                      <Form.Item
-                        className="form-input-group"
-                        rules={[
-                          {
-                            required: true,
-                            message: 'Please enter your first name!',
-                          },
-                        ]}
-                        label="First Name"
-                        name="first_name"
-                      >
-                        <Input className="input" placeholder="First Name" />
-                      </Form.Item>
 
                       {/* Email */}
                       <Form.Item

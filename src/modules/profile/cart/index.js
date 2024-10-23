@@ -68,7 +68,7 @@ export default function Cart() {
       </div>
     </div>
   );
-  
+
   console.log(cart)
   return (
     <div className="cart-container">
@@ -133,7 +133,7 @@ export default function Cart() {
         className="button button--main--book"
         type="button"
       >
-        <span>Create a payment</span>
+        <span>Checkout</span>
       </Button>
 
       {/* Modal Confirm */}
