@@ -1,7 +1,10 @@
 .container-space {
-  padding-top: $pd-6;
+  padding-top: 0px;
   padding-bottom: $pd-5 + 10;
+  border: #0d5e14 1px solid;
 }
+
+
 
 // Banner
 .banner-container {
@@ -71,6 +74,25 @@
   }
 }
 
+.banner {
+  display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space elements evenly */
+    width: 100%; /* Full width of the container */
+}
+
+.left-banner, .right-banner {
+  flex: 0 0 15%; /* Set left and right divs to take 15% each */
+  background-color: #f1c40f; /* Example background color */
+  padding: 20px; /* Padding inside the divs */
+  text-align: center; /* Center text */
+}
+
+.middle {
+  flex: 0 0 70%; /* Set middle div to take 70% */
+  padding: 20px; /* Padding inside the div */
+  text-align: center; /* Center text */
+}
+
 // Discover
 .discover-container {
   .title {
@@ -134,9 +156,12 @@
 .newest-container,
 .list-container {
   .title {
-    padding: 0 0 36px;
+    padding: 36px 0 36px 0;
     font-size: 3rem;
     text-align: center;
+    background-color: #0d5e14;
+    margin: auto;
+    color: #ffffff;
   }
   .trending-content,
   .best-seller-content,

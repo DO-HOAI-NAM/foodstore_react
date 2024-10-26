@@ -46,7 +46,7 @@ export default function Watch() {
     {
       title: 'Created Date',
       key: 'created date',
-      render: (record) => formatDateAndTime(record.created_date),
+      render: (record) => formatDateAndTime(record.created_at),
     },
     {
       title: 'Actions',

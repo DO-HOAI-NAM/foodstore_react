@@ -45,7 +45,7 @@ export default function Favorite() {
     {
       title: 'Created Date',
       key: 'created date',
-      render: (record) => formatDateAndTime(record.created_date),
+      render: (record) => formatDateAndTime(record.created_at),
     },
     {
       title: 'Actions',

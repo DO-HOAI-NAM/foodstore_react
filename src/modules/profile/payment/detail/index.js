@@ -124,7 +124,7 @@ export default function PaymentDetail() {
                   <div className="info-item">
                     <span className="payment-title">Issued: </span>
                     <span className="payment-title-sub">
-                      {moment(payment.created_date).format("DD/MM/YYYY") ??
+                      {moment(payment.created_at).format("DD/MM/YYYY") ??
                         "09/05/2023"}
                     </span>
                   </div>

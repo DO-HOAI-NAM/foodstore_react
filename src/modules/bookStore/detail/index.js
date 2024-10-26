@@ -360,10 +360,10 @@ console.log('currentUser', currentUser)
                             </div>
                           </div>
                           <p className="date">
-                            {moment(new Date(item.created_date)).format(
+                            {moment(new Date(item.created_at)).format(
                               "YYYY-MM-DD"
                             )}
-                            - {moment(new Date(item.created_date)).format("LT")}
+                            - {moment(new Date(item.created_at)).format("LT")}
                           </p>
                           <p className="description">{item.comment}</p>
                         </div>

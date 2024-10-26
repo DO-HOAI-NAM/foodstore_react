@@ -30,7 +30,7 @@ export default function MedicalRecordList() {
     {
       title: 'Created date',
       key: 'created date',
-      render: (record) => formatDateAndTime(record.created_date),
+      render: (record) => formatDateAndTime(record.created_at),
     },
     {
       title: 'Status',

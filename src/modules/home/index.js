@@ -18,13 +18,13 @@ import {
   fetchAllCategoryBook,
   fetchBestSeller,
   fetchNewest,
-  fetchTrending,
+  fetchSaleoff,
   selectBestSellerBooks,
   selectBooks,
   selectCategoryBook,
   selectFilteredBookGrid,
   selectNewestBooks,
-  selectTrendingBooks,
+  selectsaleoff,
 } from "../../store/slices/booksSlice";
 import Pagination from "../../components/Pagination";
 import Button from "../../components/Button";
@@ -85,10 +85,10 @@ const { Option } = Select;
 const settings = {
   dots: true,
   arrows: false,
+  infinite: false,
   // adaptiveHeight: true,
   swipe: true,
   autoplay: false,
-  infinite: true,
   speed: 500,
   slidesToShow: 5,
   slidesToScroll: 1,
@@ -121,34 +121,23 @@ export default function HomePage() {
   const books = useSelector(selectBooks);
   const filteredBooks = useSelector(selectFilteredBookGrid);
   const [cloneBooks, setCloneBooks] = useState([]);
-  const trendingBooks = useSelector(selectTrendingBooks);
+  const saleoff = useSelector(selectsaleoff);
   const bestSellerBooks = useSelector(selectBestSellerBooks);
   const newestBooks = useSelector(selectNewestBooks);
   const bookCategory = useSelector(selectCategoryBook);
 
-  // Fetch Category
   useEffect(() => {
-    dispatch(fetchAllCategoryBook());
-  }, [dispatch]);
+    const fetchData = async () => {
+      await Promise.all([
+        dispatch(fetchAllCategoryBook()),
+        dispatch(fetchSaleoff()),
+        dispatch(fetchBestSeller()),
+        dispatch(fetchNewest()),
+        dispatch(fetchAll())
+      ]);
+    };
 
-  // Fetch Trending
-  useEffect(() => {
-    dispatch(fetchTrending());
-  }, [dispatch]);
-
-  // Fetch Best Seller
-  useEffect(() => {
-    dispatch(fetchBestSeller());
-  }, [dispatch]);
-
-  // Fetch Newest
-  useEffect(() => {
-    dispatch(fetchNewest());
-  }, [dispatch]);
-
-  // Fetch All Products
-  useEffect(() => {
-    dispatch(fetchAll());
+    fetchData();
   }, [dispatch]);
 
   // Clone books
@@ -159,9 +148,9 @@ export default function HomePage() {
     setCloneBooks(filteredBooks.slice(start, end));
   }, [filteredBooks, page]);
 
+  console.log('sale', saleoff);
   // Search
   const handleClickSearch = () => {};
-console.log('trendingBooks', trendingBooks)
   return (
     <div className="app-container">
       <Header />
@@ -203,12 +192,12 @@ console.log('trendingBooks', trendingBooks)
           <div className="discover-content">
             <h4 className="heading">New Releases</h4>
             <div className="grid-product">
-              {trendingBooks &&
-                trendingBooks.map((item, index) => (
+              {saleoff &&
+                saleoff.map((item, index) => (
                   <Link
                     to={`books/${item.id}`}
                     className="item"
-                    key={item.created_date + index}
+                    key={item.created_at + index}
                   >
                     <img
                       alt="img"
@@ -236,20 +225,23 @@ console.log('trendingBooks', trendingBooks)
       </section>
 
       {/* Trending */}
-      <section className="trending-container container-space">
-        <div className="container-fluid">
-          <h3 className="title">Choose Trending Book</h3>
+      <section className="trending-container container-space banner">
+      <div className="left-banner">Left</div>
+
+        <div className="container-fluid middle">
+          <h3 className="title">Big Sales Off</h3>
           <div className="trending-content">
-            <h4 className="heading">Trending</h4>
-            <div className="trending-list">
+            <h4 className="heading">Expired Soon - Buy for the better price</h4>
+               <div className="trending-list">
               <Slider {...settings}>
-                {trendingBooks &&
-                  trendingBooks.map((item, index) => (
+                {saleoff &&
+                  saleoff.map((item, index) => (
                     <Link
                       to={`books/${item.id}`}
                       className="item"
                       key={item.name + index}
                     >
+                      <div className="product">{item.dayLeft} days left</div>
                       <img
                         alt="img"
                         src={
@@ -274,6 +266,8 @@ console.log('trendingBooks', trendingBooks)
             </div>
           </div>
         </div>
+        <div className="right-banner">Right</div>
+
       </section>
 
       {/* Best Seller */}
@@ -408,7 +402,7 @@ console.log('trendingBooks', trendingBooks)
                 <Link
                   to={`books/${item.id}`}
                   className="item"
-                  key={item.created_date + index}
+                  key={item.created_at + index}
                 >
                   <img
                     alt="img"

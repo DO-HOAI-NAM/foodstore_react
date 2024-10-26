@@ -102,7 +102,7 @@ export default function ArticleList({ type }) {
                             <AiOutlineClockCircle />
                           </span>
                           <span className="text">
-                            {moment(article.created_date).format('MMM Do YY')}
+                            {moment(article.created_at).format('MMM Do YY')}
                           </span>
                         </p>
                         <p className="article-info-item">
@@ -145,7 +145,7 @@ export default function ArticleList({ type }) {
                         <div className="sub-content">
                           <h3 className="sub-title">{item.title}</h3>
                           <p className="sub-date">
-                            {moment(item.created_date).format('MMM Do YY')}
+                            {moment(item.created_at).format('MMM Do YY')}
                           </p>
                         </div>
                       </Link>

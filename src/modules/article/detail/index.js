@@ -96,7 +96,7 @@ export default function ArticleDetail() {
                         <div className="sub-content">
                           <h3 className="sub-title">{item.title}</h3>
                           <p className="sub-date">
-                            {moment(item.created_date).format('MMM Do YY')}
+                            {moment(item.created_at).format('MMM Do YY')}
                           </p>
                         </div>
                       </Link>

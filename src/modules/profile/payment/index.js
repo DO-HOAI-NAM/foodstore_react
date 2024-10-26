@@ -23,6 +23,7 @@ export default function PaymentList() {
     dispatch(fetchPayments());
   }, [dispatch]);
 
+  console.log('payment', payments);
   const paymentColumns = [
     {
       title: 'Order ID',
@@ -37,13 +38,13 @@ export default function PaymentList() {
     {
       title: 'Created Date',
       key: 'created date',
-      render: (record) => formatDateAndTime(record.created_date),
+      render: (record) => formatDateAndTime(record.created_at),
     },
     // {
     //   title: 'Paid On',
     //   key: 'paid on',
     //   render: (record) =>
-    //     !record.status ? 0 : formatDateAndTime(record.created_date),
+    //     !record.status ? 0 : formatDateAndTime(record.created_at),
     // },
     {
       title: 'Status',
