@@ -28,9 +28,14 @@ export const updateItemInCart = createAsyncThunk(
   async (data) => {
     try {
       const { amount, item } = data;
+
+      console.log('amount', item)
       const result = await cartAPI.updateItem({
         amount,
         cart_id: item.cart_id,
+        product_id: item.product_id,
+        user_id: item.user_id,
+        price: parseFloat(item.price),
       });
       return {
         data: result.data,

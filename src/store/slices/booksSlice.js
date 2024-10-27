@@ -17,7 +17,7 @@ export const addWatch = createAsyncThunk(
   async (book_id) => {
     try {
       const result = await bookAPI.addWatch({
-        product_id: book_id,
+        product_id: parseInt(book_id),
       });
       return {
         data: result.data,
@@ -34,11 +34,11 @@ export const addFavorite = createAsyncThunk(
   async (book_id) => {
     try {
       const result = await bookAPI.addFavorite({
-        product_id: book_id,
+        product_id: parseInt(book_id),
       });
       return {
         data: result.data,
-        product_id: book_id,
+        product_id: parseInt(book_id),
       };
     } catch (error) {
       return Promise.reject(error.message);
@@ -389,11 +389,18 @@ export const selectFilteredBookGrid = (state) => {
   return books.filter((item) => {
     let result = true;
 
+    console.log(
+      'item', item,
+    )
     // Check includes name
-    if (!item.title.toLowerCase().includes(searchTerm.toLowerCase()))
+    if (!item.product_name.toLowerCase().includes(searchTerm.toLowerCase()))
       return (result = false);
 
     // Check category
+
+    console.log('test', searchCategory)
+    console.log('test2', item)
+
     if (searchCategory !== "" && item.category_name !== searchCategory)
       return (result = false);
 

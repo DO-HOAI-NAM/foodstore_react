@@ -1,7 +1,7 @@
 .appointment-information-container {
   .title {
     margin-bottom: $mg-0;
-    @include styleText($color-tomato, $fs-3, $fw-2);
+    @include styleText($color-tomato2, $fs-3, $fw-2);
   }
   .info {
     .left {

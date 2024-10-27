@@ -15,7 +15,7 @@ const cartAPI = {
   },
   updateItem(data) {
     const url = `/carts`;
-    return axiosClient.put(url, data);
+    return axiosClient.post(url, data);
   },
   deleteItem(cart_id) {
     const url = `/carts/${cart_id}`;

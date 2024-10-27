@@ -30,7 +30,7 @@ const bookAPI = {
     return axiosClient.post(url, book);
   },
   addFavorite(book) {
-    const url = `/project/favorite`;
+    const url = `/favorites`;
     return axiosClient.post(url, book);
   },
   checkBook(book_id) {
@@ -38,11 +38,11 @@ const bookAPI = {
     return axiosClient.get(url);
   },
   commentBook(data) {
-    const url = `/project/comment`;
+    const url = `/products/comment`;
     return axiosClient.post(url, data);
   },
   getAllCategory() {
-    const url = `/category`;
+    const url = `/categories`;
     return axiosClient.get(url);
   },
   checkFavorite() {

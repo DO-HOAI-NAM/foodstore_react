@@ -28,6 +28,7 @@ import {
 } from "../../store/slices/booksSlice";
 import Pagination from "../../components/Pagination";
 import Button from "../../components/Button";
+import { fetchBanners, selectBanners } from "../../store/slices/bannerSlice";
 
 const mockAPI = [
   {
@@ -125,7 +126,9 @@ export default function HomePage() {
   const bestSellerBooks = useSelector(selectBestSellerBooks);
   const newestBooks = useSelector(selectNewestBooks);
   const bookCategory = useSelector(selectCategoryBook);
+  const banner = useSelector(selectBanners)
 
+  console.log('banner', banner);
   useEffect(() => {
     const fetchData = async () => {
       await Promise.all([
@@ -133,7 +136,8 @@ export default function HomePage() {
         dispatch(fetchSaleoff()),
         dispatch(fetchBestSeller()),
         dispatch(fetchNewest()),
-        dispatch(fetchAll())
+        dispatch(fetchAll()),
+        dispatch(fetchBanners()),
       ]);
     };
 
@@ -149,6 +153,8 @@ export default function HomePage() {
   }, [filteredBooks, page]);
 
   console.log('sale', saleoff);
+  console.log('banner', banner[0]);
+
   // Search
   const handleClickSearch = () => {};
   return (
@@ -164,7 +170,7 @@ export default function HomePage() {
               <Typewriter
                 options={{
                   strings: [
-                    "Food store. For your intelligence ",
+                    "Food store. For your health",
                     "Best online Food store",
                   ],
                   autoStart: true,
@@ -173,9 +179,7 @@ export default function HomePage() {
                 }}
               />
               <p className="sub-title">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-                ipsum suspendisse.
+                Best food store for the expired soon food
               </p>
             </div>
           </Col>
@@ -226,7 +230,9 @@ export default function HomePage() {
 
       {/* Trending */}
       <section className="trending-container container-space banner">
-      <div className="left-banner">Left</div>
+      <div className="left-banner">
+      <img src={banner.length > 0 ? banner[0].image_url : ''} alt="doctor" className="doctor-avatar" />
+      </div>
 
         <div className="container-fluid middle">
           <h3 className="title">Big Sales Off</h3>
@@ -266,7 +272,10 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-        <div className="right-banner">Right</div>
+        <div className="right-banner">
+        <img src={banner.length > 0 ? banner[1].image_url : ''} alt="doctor" className="doctor-avatar" />
+
+        </div>
 
       </section>
 
@@ -353,7 +362,11 @@ export default function HomePage() {
       </section>
 
       {/* Display Grid Product */}
-      <section className="list-container container-space">
+      <section className="list-container container-space banner">
+      <div className="left-banner">
+        <img src={banner.length > 0 ? banner[2].image_url : ''} alt="doctor" className="doctor-avatar" />
+
+      </div>
         <div className="container-fluid grid-content">
           <h3 className="title">Grid display books</h3>
           <Form
@@ -432,6 +445,9 @@ export default function HomePage() {
             count={filteredBooks.length}
           />
         </div>
+       <div className="right-banner">
+       <img src={banner.length > 0 ? banner[3].image_url : ''} alt="doctor" className="doctor-avatar" />
+       </div>
       </section>
 
       <Footer />

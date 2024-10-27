@@ -33,14 +33,14 @@ export default function Cart() {
       })
     );
   };
-
+  console.log('cart', cart)
   const handleCreatePayment = () => {
     dispatch(createPayment());
     window.location.href = "/profile/payments";
   };
 
   const handleDeleteProduct = () => {
-    dispatch(deleteItemInCart(productSelected.cart_id));
+    dispatch(deleteItemInCart(productSelected.id));
     setIsShowDelete(false);
   };
 
@@ -82,9 +82,11 @@ export default function Cart() {
                 src={`${process.env.REACT_APP_API_URL}/documents/${item.product.documents[0].document}`}
               /> */}
               {/* <h3 className="name">{item.product.title}</h3> */}
-              <h3 className="name">123</h3>
-
+              <h3 className="id">{index}</h3>
+              <h3 className="name">{cart.product_name}</h3>
               <h4 className="price">₫{item.price}</h4>
+              <h4 className="price">₫{Math.round(item.price / 100 * (100 - item.discount))}</h4>
+
               <div className="quantity-container">
                 <Button
                   onClick={() => handleOnChangeAmount(item.amount - 1, item)}
@@ -113,6 +115,7 @@ export default function Cart() {
                 </Button>
               </div>
               <h4 className="total">₫{item.price * item.amount}</h4>
+              <h4 className="total">₫{Math.round(item.price / 100 * (100 - item.discount)) * item.amount}</h4>
               <Button
                 className="button button--text--red"
                 type="button"
