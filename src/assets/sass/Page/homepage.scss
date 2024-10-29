@@ -85,8 +85,9 @@
   flex: 0 0 10%; /* Set left and right divs to take 15% each */
   background-color: #f1c40f; /* Example background color */
   text-align: center; /* Center text */
-  width: 100%;
+  width: 180px;
   height: 100%;
+  position: absolute;
 }
 
 .left-banner img,
@@ -100,8 +101,9 @@
   flex: 0 0 10%; /* Set left and right divs to take 15% each */
   background-color: #f1c40f; /* Example background color */
   text-align: center; /* Center text */
-  width: 100%;
+  width: 180px;
   height: 100%;
+  position: absolute;
   right: 0px;
 }
 
