@@ -305,7 +305,7 @@ console.log('currentUser', currentUser)
                       />
                     </div>
                     <div className="right">
-                      <h3 className="username">{currentUser.full_name}</h3>
+                      <h3 className="username">{currentUser.data.name}</h3>
                       <Form
                         className="form-comment"
                         scrollToFirstError
