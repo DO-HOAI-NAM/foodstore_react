@@ -4,9 +4,9 @@
     background-color: #fff;
     box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.09);
   }
-  .book-detail-container {
+  .food-detail-container {
     margin-top: 20px;
-    .book-detail-content {
+    .food-detail-content {
       background: #fff;
       .image-container {
         width: 100%;
@@ -29,9 +29,9 @@
           }
         }
       }
-      .book-info-container {
+      .food-info-container {
         padding: 20px;
-        .book-title {
+        .food-title {
           font-size: 22px;
           font-weight: 500;
           color: #000;
@@ -229,7 +229,7 @@
       }
     }
 
-    .book-info-item {
+    .food-info-item {
       background: #fff;
       margin-top: 0.9375rem;
       margin-bottom: 0.9375rem;

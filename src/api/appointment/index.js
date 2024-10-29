@@ -1,7 +1,7 @@
 import axiosClient from '../axios.config';
 
 const appointmentAPI = {
-  book(appointment) {
+  food(appointment) {
     const url = `/patient/appointment`;
     return axiosClient.post(url, appointment);
   },

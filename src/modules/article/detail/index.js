@@ -50,7 +50,7 @@ export default function ArticleDetail() {
               <h2 className="title">{articleDetail.product_name}</h2>
               <div className="share-socials">
                 <span>Share: </span>
-                <p className="social facebook">
+                <p className="social facefood">
                   <FaFacebookF className="icon" />
                 </p>
                 <p className="social twitter">

@@ -53,7 +53,7 @@ export default function Favorite() {
       render: (record) => (
         <div className="button-container">
         <Button
-          className="button button--main--book rounded"
+          className="button button--main--food rounded"
         >
           Delete
       </Button>

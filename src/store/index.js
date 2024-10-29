@@ -6,7 +6,7 @@ import supportsSlice from "./slices/supportsSlice";
 import articlesSlice from "./slices/articlesSlice";
 import paymentsSlice from "./slices/paymentsSlice";
 import medicalRecordsSclie from "./slices/medicalRecordsSclie";
-import booksSlice from "./slices/booksSlice";
+import foodsSlice from "./slices/foodsSlice";
 import cartSlice from "./slices/cartSlice";
 import bannerSlice from './slices/bannerSlice';
 
@@ -19,7 +19,7 @@ export default configureStore({
     articles: articlesSlice,
     payments: paymentsSlice,
     medicalRecords: medicalRecordsSclie,
-    books: booksSlice,
+    foods: foodsSlice,
     cart: cartSlice,
     banners: bannerSlice,
   },

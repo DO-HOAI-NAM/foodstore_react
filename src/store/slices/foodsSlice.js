@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { message } from "antd";
-import bookAPI from "../../api/book";
+import foodAPI from "../../api/food";
 
-export const fetchAll = createAsyncThunk("booksSlice/fetchAll", async () => {
+export const fetchAll = createAsyncThunk("foodsSlice/fetchAll", async () => {
   try {
-    const result = await bookAPI.getAll();
+    const result = await foodAPI.getAll();
     console.log('result', result)
     return result.data;
   } catch (error) {
@@ -13,15 +13,15 @@ export const fetchAll = createAsyncThunk("booksSlice/fetchAll", async () => {
 });
 
 export const addWatch = createAsyncThunk(
-  "booksSlice/addWatch",
-  async (book_id) => {
+  "foodsSlice/addWatch",
+  async (food_id) => {
     try {
-      const result = await bookAPI.addWatch({
-        product_id: parseInt(book_id),
+      const result = await foodAPI.addWatch({
+        product_id: parseInt(food_id),
       });
       return {
         data: result.data,
-        product_id: book_id,
+        product_id: food_id,
       };
     } catch (error) {
       return Promise.reject(error.message);
@@ -30,15 +30,15 @@ export const addWatch = createAsyncThunk(
 );
 
 export const addFavorite = createAsyncThunk(
-  "booksSlice/addFavorite",
-  async (book_id) => {
+  "foodsSlice/addFavorite",
+  async (food_id) => {
     try {
-      const result = await bookAPI.addFavorite({
-        product_id: parseInt(book_id),
+      const result = await foodAPI.addFavorite({
+        product_id: parseInt(food_id),
       });
       return {
         data: result.data,
-        product_id: parseInt(book_id),
+        product_id: parseInt(food_id),
       };
     } catch (error) {
       return Promise.reject(error.message);
@@ -46,14 +46,14 @@ export const addFavorite = createAsyncThunk(
   }
 );
 
-export const checkBook = createAsyncThunk(
-  "booksSlice/checkBook",
-  async (book_id) => {
+export const checkFood = createAsyncThunk(
+  "foodsSlice/checkFood",
+  async (food_id) => {
     try {
-      const result = await bookAPI.checkBook(book_id);
+      const result = await foodAPI.checkFood(food_id);
       return {
         data: result.data,
-        product_id: book_id,
+        product_id: food_id,
       };
     } catch (error) {
       return Promise.reject(error.message);
@@ -62,10 +62,10 @@ export const checkBook = createAsyncThunk(
 );
 
 export const fetchSaleoff = createAsyncThunk(
-  "booksSlice/fetchSaleoff",
+  "foodsSlice/fetchSaleoff",
   async () => {
     try {
-      const result = await bookAPI.getSaleoff();
+      const result = await foodAPI.getSaleoff();
       return result.data;
     } catch (error) {
       return Promise.reject(error.message);
@@ -73,11 +73,11 @@ export const fetchSaleoff = createAsyncThunk(
   }
 );
 
-export const fetchOneBook = createAsyncThunk(
-  "booksSlice/fetchOneBook",
-  async (book_id) => {
+export const fetchOneFood = createAsyncThunk(
+  "foodsSlice/fetchOneFood",
+  async (food_id) => {
     try {
-      const result = await bookAPI.getOne(book_id);
+      const result = await foodAPI.getOne(food_id);
       return result.data;
     } catch (error) {
       return Promise.reject(error.message);
@@ -86,10 +86,10 @@ export const fetchOneBook = createAsyncThunk(
 );
 
 export const fetchBestSeller = createAsyncThunk(
-  "booksSlice/fetchBestSeller",
+  "foodsSlice/fetchBestSeller",
   async () => {
     try {
-      const result = await bookAPI.getBestSeller();
+      const result = await foodAPI.getBestSeller();
       return result.data;
     } catch (error) {
       return Promise.reject(error.message);
@@ -98,10 +98,10 @@ export const fetchBestSeller = createAsyncThunk(
 );
 
 export const fetchNewest = createAsyncThunk(
-  "booksSlice/fetchNewest",
+  "foodsSlice/fetchNewest",
   async () => {
     try {
-      const result = await bookAPI.getNewest();
+      const result = await foodAPI.getNewest();
       return result.data;
     } catch (error) {
       return Promise.reject(error.message);
@@ -109,11 +109,11 @@ export const fetchNewest = createAsyncThunk(
   }
 );
 
-export const commentBook = createAsyncThunk(
-  "booksSlice/commentBook",
+export const commentFood = createAsyncThunk(
+  "foodsSlice/commentFood",
   async (data) => {
     try {
-      const result = await bookAPI.commentBook(data);
+      const result = await foodAPI.commentFood(data);
       return result.data;
     } catch (error) {
       return Promise.reject(error.message);
@@ -122,10 +122,10 @@ export const commentBook = createAsyncThunk(
 );
 
 export const fetchComment = createAsyncThunk(
-  "booksSlice/fetchComment",
-  async (book_id) => {
+  "foodsSlice/fetchComment",
+  async (food_id) => {
     try {
-      const result = await bookAPI.getComment(book_id);
+      const result = await foodAPI.getComment(food_id);
       return result.data;
     } catch (error) {
       return Promise.reject(error.message);
@@ -133,11 +133,11 @@ export const fetchComment = createAsyncThunk(
   }
 );
 
-export const fetchAllCategoryBook = createAsyncThunk(
-  "booksSlice/fetchAllCategoryBook",
+export const fetchAllCategoryFood = createAsyncThunk(
+  "foodsSlice/fetchAllCategoryFood",
   async () => {
     try {
-      const result = await bookAPI.getAllCategory();
+      const result = await foodAPI.getAllCategory();
       return result.data;
     } catch (error) {
       return Promise.reject(error.message);
@@ -146,17 +146,17 @@ export const fetchAllCategoryBook = createAsyncThunk(
 );
 
 // Reducer
-const booksSlice = createSlice({
-  name: "booksSlice",
+const foodsSlice = createSlice({
+  name: "foodsSlice",
   initialState: {
-    books: [],
+    foods: [],
     favorite: [],
     watch: [],
-    bookCategory: [],
+    foodCategory: [],
     saleoff: [],
-    bestSellerBooks: [],
-    newestBooks: [],
-    bookNeedUpdate: {},
+    bestSellerFoods: [],
+    newestFoods: [],
+    foodNeedUpdate: {},
     searchTerm: "",
     searchCategory: "",
     isLoading: false,
@@ -181,7 +181,7 @@ const booksSlice = createSlice({
         ...action.payload,
         ...action.payload.sort(() => Math.random() - 0.5),
       ];
-      state.books = arr;
+      state.foods = arr;
       state.isLoading = false;
       state.hasError = false;
     },
@@ -211,7 +211,7 @@ const booksSlice = createSlice({
       state.hasError = false;
     },
     [fetchBestSeller.fulfilled]: (state, action) => {
-      state.bestSellerBooks = [...action.payload];
+      state.bestSellerFoods = [...action.payload];
       state.isLoading = false;
       state.hasError = false;
     },
@@ -226,7 +226,7 @@ const booksSlice = createSlice({
       state.hasError = false;
     },
     [fetchNewest.fulfilled]: (state, action) => {
-      state.newestBooks = [...action.payload];
+      state.newestFoods = [...action.payload];
       state.isLoading = false;
       state.hasError = false;
     },
@@ -236,26 +236,26 @@ const booksSlice = createSlice({
       state.hasError = true;
     },
     // Fetch One Food
-    [fetchOneBook.pending]: (state) => {
+    [fetchOneFood.pending]: (state) => {
       state.isLoading = true;
       state.hasError = false;
     },
-    [fetchOneBook.fulfilled]: (state, action) => {
-      state.bookNeedUpdate = action.payload;
+    [fetchOneFood.fulfilled]: (state, action) => {
+      state.foodNeedUpdate = action.payload;
       state.isLoading = false;
       state.hasError = false;
     },
-    [fetchOneBook.rejected]: (state, action) => {
+    [fetchOneFood.rejected]: (state, action) => {
       message.err(action.error.message, 3);
       state.isLoading = false;
       state.hasError = true;
     },
-    // Checkbook
-    [checkBook.pending]: (state) => {
+    // Checkfood
+    [checkFood.pending]: (state) => {
       state.isLoading = true;
       state.hasError = false;
     },
-    [checkBook.fulfilled]: (state, action) => {
+    [checkFood.fulfilled]: (state, action) => {
       const watch = action.payload.data.watch;
       const favorite = action.payload.data.favorite;
 
@@ -270,7 +270,7 @@ const booksSlice = createSlice({
       state.isLoading = false;
       state.hasError = false;
     },
-    [checkBook.rejected]: (state, action) => {
+    [checkFood.rejected]: (state, action) => {
       message.err(action.error.message, 3);
       state.isLoading = false;
       state.hasError = true;
@@ -314,14 +314,14 @@ const booksSlice = createSlice({
       state.isLoading = false;
       state.hasError = true;
     },
-    // CommentBook
-    [commentBook.pending]: (state) => {
+    // CommentFood
+    [commentFood.pending]: (state) => {
       state.isLoading = true;
       state.hasError = false;
     },
-    [commentBook.fulfilled]: (state, action) => {
+    [commentFood.fulfilled]: (state, action) => {
       const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-      state.bookNeedUpdate.comments.unshift({
+      state.foodNeedUpdate.comments.unshift({
         ...action.payload,
         avatar: currentUser.avatar,
         full_name: currentUser.name,
@@ -331,22 +331,22 @@ const booksSlice = createSlice({
       state.isLoading = false;
       state.hasError = false;
     },
-    [commentBook.rejected]: (state, action) => {
+    [commentFood.rejected]: (state, action) => {
       message.err(action.error.message, 3);
       state.isLoading = false;
       state.hasError = true;
     },
-    // fetch all category book
-    [fetchAllCategoryBook.pending]: (state) => {
+    // fetch all category food
+    [fetchAllCategoryFood.pending]: (state) => {
       state.isLoading = true;
       state.hasError = false;
     },
-    [fetchAllCategoryBook.fulfilled]: (state, action) => {
-      state.bookCategory = action.payload;
+    [fetchAllCategoryFood.fulfilled]: (state, action) => {
+      state.foodCategory = action.payload;
       state.isLoading = false;
       state.hasError = false;
     },
-    [fetchAllCategoryBook.rejected]: (state, action) => {
+    [fetchAllCategoryFood.rejected]: (state, action) => {
       message.err(action.error.message, 3);
       state.isLoading = false;
       state.hasError = true;
@@ -355,38 +355,38 @@ const booksSlice = createSlice({
 });
 
 // Selector
-export const selectBooks = (state) => state.books.books;
+export const selectFoods = (state) => state.foods.foods;
 
-export const selectsaleoff = (state) => state.books.saleoff;
+export const selectsaleoff = (state) => state.foods.saleoff;
 
-export const selectCategoryBook = (state) => state.books.bookCategory;
+export const selectCategoryFood = (state) => state.foods.foodCategory;
 
-export const selectBestSellerBooks = (state) => state.books.bestSellerBooks;
+export const selectBestSellerFoods = (state) => state.foods.bestSellerFoods;
 
-export const selectNewestBooks = (state) => state.books.newestBooks;
+export const selectNewestFoods = (state) => state.foods.newestFoods;
 
-export const selectBookNeedUpdate = (state) => state.books.bookNeedUpdate;
+export const selectFoodNeedUpdate = (state) => state.foods.foodNeedUpdate;
 
-export const selectBookWatch = (state) => state.books.watch;
+export const selectFoodWatch = (state) => state.foods.watch;
 
-export const selectBookFavorite = (state) => state.books.favorite;
+export const selectFoodFavorite = (state) => state.foods.favorite;
 
-export const selectBookIsLoading = (state) => state.books.isLoading;
+export const selectFoodIsLoading = (state) => state.foods.isLoading;
 
-export const selectSearchTerm = (state) => state.books.searchTerm;
+export const selectSearchTerm = (state) => state.foods.searchTerm;
 
-export const selectSearchCategory = (state) => state.books.searchCategory;
+export const selectSearchCategory = (state) => state.foods.searchCategory;
 
-export const selectFilteredBookGrid = (state) => {
+export const selectFilteredFoodGrid = (state) => {
   const searchCategory = selectSearchCategory(state);
   const searchTerm = selectSearchTerm(state);
-  const books = selectBooks(state);
+  const foods = selectFoods(state);
 
   if (searchTerm === "" && searchCategory === "") {
-    return books;
+    return foods;
   }
 
-  return books.filter((item) => {
+  return foods.filter((item) => {
     let result = true;
 
     console.log(
@@ -408,6 +408,6 @@ export const selectFilteredBookGrid = (state) => {
   });
 };
 
-export const { changeSearchCategory, changeSearchTerm } = booksSlice.actions;
+export const { changeSearchCategory, changeSearchTerm } = foodsSlice.actions;
 
-export default booksSlice.reducer;
+export default foodsSlice.reducer;

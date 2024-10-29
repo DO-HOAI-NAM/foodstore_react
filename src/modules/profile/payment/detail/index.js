@@ -214,7 +214,7 @@ export default function PaymentDetail() {
                   <Link
                     to={`/payment/checkout/${order_id}`}
                     type="button"
-                    className="button button--main--book square checkout-button"
+                    className="button button--main--food square checkout-button"
                   >
                     Check out
                   </Link>

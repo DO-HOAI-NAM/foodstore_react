@@ -1,6 +1,6 @@
 import axiosClient from "../axios.config";
 
-const bookAPI = {
+const foodAPI = {
   getAll() {
     const url = `/products/product`;
     return axiosClient.get(url);
@@ -21,23 +21,23 @@ const bookAPI = {
     const url = `/products/product`;
     return axiosClient.get(url);
   },
-  getOne(book_id) {
-    const url = `/products/product/${book_id}`;
+  getOne(food_id) {
+    const url = `/products/product/${food_id}`;
     return axiosClient.get(url);
   },
-  addWatch(book) {
+  addWatch(food) {
     const url = `/watchs`;
-    return axiosClient.post(url, book);
+    return axiosClient.post(url, food);
   },
-  addFavorite(book) {
+  addFavorite(food) {
     const url = `/favorites`;
-    return axiosClient.post(url, book);
+    return axiosClient.post(url, food);
   },
-  checkBook(book_id) {
-    const url = `/project/check/${book_id}`;
+  checkFood(food_id) {
+    const url = `/project/check/${food_id}`;
     return axiosClient.get(url);
   },
-  commentBook(data) {
+  commentFood(data) {
     const url = `/products/comment`;
     return axiosClient.post(url, data);
   },
@@ -55,4 +55,4 @@ const bookAPI = {
   },
 };
 
-export default bookAPI;
+export default foodAPI;

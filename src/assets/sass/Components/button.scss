@@ -79,7 +79,7 @@
     border: none;
   }
 
-  &.button--main--book {
+  &.button--main--food {
     background-color: #d0011b;
     color: #fff;
     padding: 14px 20px;
@@ -94,7 +94,7 @@
     }
   }
 
-  &.button--light--book {
+  &.button--light--food {
     @include styleButton(
       $color-black-0,
       $color-white-0,

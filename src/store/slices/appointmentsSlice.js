@@ -2,12 +2,12 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { message } from "antd";
 import appointmentAPI from "../../api/appointment";
 
-export const bookAppointment = createAsyncThunk(
-  "appointmentsSlice/bookAppointment",
+export const foodAppointment = createAsyncThunk(
+  "appointmentsSlice/foodAppointment",
   async (data) => {
     try {
       const { newAppointment, nextStep } = data;
-      const result = await appointmentAPI.book(newAppointment);
+      const result = await appointmentAPI.food(newAppointment);
       return {
         result: result.data,
         nextStep,
@@ -41,17 +41,17 @@ const appointmentsSlice = createSlice({
   reducers: {},
   extraReducers: {
     // Food appointment
-    [bookAppointment.pending]: (state) => {
+    [foodAppointment.pending]: (state) => {
       state.isLoading = true;
       state.hasError = false;
     },
-    [bookAppointment.fulfilled]: (state, action) => {
+    [foodAppointment.fulfilled]: (state, action) => {
       message.success("Sent appointment successfully!");
       action.payload.nextStep();
       state.isLoading = false;
       state.hasError = false;
     },
-    [bookAppointment.rejected]: (state, action) => {
+    [foodAppointment.rejected]: (state, action) => {
       message.error(
         `Sent appointment failed due to ${action.error.message}`,
         3

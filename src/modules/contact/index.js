@@ -85,7 +85,7 @@ export default function Contact() {
           <div className="form-content">
             <Form
               form={form}
-              className="bookAppointmentForm"
+              className="foodAppointmentForm"
               onFinish={handleSubmit}
               scrollToFirstError
               name="contactForm"

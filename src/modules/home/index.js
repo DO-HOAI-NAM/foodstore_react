@@ -15,17 +15,17 @@ import {
   changeSearchCategory,
   changeSearchTerm,
   fetchAll,
-  fetchAllCategoryBook,
+  fetchAllCategoryFood,
   fetchBestSeller,
   fetchNewest,
   fetchSaleoff,
-  selectBestSellerBooks,
-  selectBooks,
-  selectCategoryBook,
-  selectFilteredBookGrid,
-  selectNewestBooks,
+  selectBestSellerFoods,
+  selectFoods,
+  selectCategoryFood,
+  selectFilteredFoodGrid,
+  selectNewestFoods,
   selectsaleoff,
-} from "../../store/slices/booksSlice";
+} from "../../store/slices/foodsSlice";
 import Pagination from "../../components/Pagination";
 import Button from "../../components/Button";
 import { fetchBanners, selectBanners } from "../../store/slices/bannerSlice";
@@ -34,7 +34,7 @@ const mockAPI = [
   {
     name: "A doctor in the house",
     cover:
-      "https://booklovers.ancorathemes.com/wp-content/uploads/2020/05/book11-copyright.jpg",
+      "https://foodlovers.ancorathemes.com/wp-content/uploads/2020/05/food11-copyright.jpg",
     author: "Candy Carson",
     price_from: "6.50",
     price_to: "16.99",
@@ -42,7 +42,7 @@ const mockAPI = [
   {
     name: "Wildflower",
     cover:
-      "https://booklovers.ancorathemes.com/wp-content/uploads/2020/05/book13-copyright.jpg",
+      "https://foodlovers.ancorathemes.com/wp-content/uploads/2020/05/food13-copyright.jpg",
     author: "Drew Berrymore",
     price_from: "10.99",
     price_to: "20.00",
@@ -50,7 +50,7 @@ const mockAPI = [
   {
     name: "New Galaxy",
     cover:
-      "https://booklovers.ancorathemes.com/wp-content/uploads/2020/05/book8-copyright.jpg",
+      "https://foodlovers.ancorathemes.com/wp-content/uploads/2020/05/food8-copyright.jpg",
     author: "Richard Mann",
     price_from: "7.90",
     price_to: "16.90",
@@ -58,7 +58,7 @@ const mockAPI = [
   {
     name: "The Long Road to the Depp Silence",
     cover:
-      "https://booklovers.ancorathemes.com/wp-content/uploads/2020/05/book5-copyright.jpg",
+      "https://foodlovers.ancorathemes.com/wp-content/uploads/2020/05/food5-copyright.jpg",
     author: "Richard Mann",
     price_from: "12.00",
     price_to: "22.00",
@@ -66,7 +66,7 @@ const mockAPI = [
   {
     name: "Life in the Garden",
     cover:
-      "https://booklovers.ancorathemes.com/wp-content/uploads/2020/05/book4-copyright.jpg",
+      "https://foodlovers.ancorathemes.com/wp-content/uploads/2020/05/food4-copyright.jpg",
     author: "Candy Carson",
     price_from: "11.99",
     price_to: "25.00",
@@ -74,7 +74,7 @@ const mockAPI = [
   {
     name: "It's a Really Strange Story",
     cover:
-      "https://booklovers.ancorathemes.com/wp-content/uploads/2020/05/book12-copyright.jpg",
+      "https://foodlovers.ancorathemes.com/wp-content/uploads/2020/05/food12-copyright.jpg",
     author: "Burt Geller",
     price_from: "8.00",
     price_to: "18.00",
@@ -119,20 +119,20 @@ export default function HomePage() {
   const dispatch = useDispatch();
   const [form] = Form.useForm();
   const [page, setPage] = useState(1);
-  const books = useSelector(selectBooks);
-  const filteredBooks = useSelector(selectFilteredBookGrid);
-  const [cloneBooks, setCloneBooks] = useState([]);
+  const foods = useSelector(selectFoods);
+  const filteredFoods = useSelector(selectFilteredFoodGrid);
+  const [cloneFoods, setCloneFoods] = useState([]);
   const saleoff = useSelector(selectsaleoff);
-  const bestSellerBooks = useSelector(selectBestSellerBooks);
-  const newestBooks = useSelector(selectNewestBooks);
-  const bookCategory = useSelector(selectCategoryBook);
+  const bestSellerFoods = useSelector(selectBestSellerFoods);
+  const newestFoods = useSelector(selectNewestFoods);
+  const foodCategory = useSelector(selectCategoryFood);
   const banner = useSelector(selectBanners)
 
   console.log('banner', banner);
   useEffect(() => {
     const fetchData = async () => {
       await Promise.all([
-        dispatch(fetchAllCategoryBook()),
+        dispatch(fetchAllCategoryFood()),
         dispatch(fetchSaleoff()),
         dispatch(fetchBestSeller()),
         dispatch(fetchNewest()),
@@ -144,13 +144,13 @@ export default function HomePage() {
     fetchData();
   }, [dispatch]);
 
-  // Clone books
+  // Clone foods
   useEffect(() => {
     const limit = 10;
     let start = (page - 1) * limit;
     let end = (page - 1) * limit + limit;
-    setCloneBooks(filteredBooks.slice(start, end));
-  }, [filteredBooks, page]);
+    setCloneFoods(filteredFoods.slice(start, end));
+  }, [filteredFoods, page]);
 
   console.log('sale', saleoff);
   console.log('banner', banner[0]);
@@ -199,7 +199,7 @@ export default function HomePage() {
               {saleoff &&
                 saleoff.map((item, index) => (
                   <Link
-                    to={`books/${item.id}`}
+                    to={`foods/${item.id}`}
                     className="item"
                     key={item.created_at + index}
                   >
@@ -243,7 +243,7 @@ export default function HomePage() {
                 {saleoff &&
                   saleoff.map((item, index) => (
                     <Link
-                      to={`books/${item.id}`}
+                      to={`foods/${item.id}`}
                       className="item"
                       key={item.name + index}
                     >
@@ -287,10 +287,10 @@ export default function HomePage() {
             <h4 className="heading">Best Seller</h4>
             <div className="best-seller-list">
               <Slider {...settings}>
-                {bestSellerBooks &&
-                  bestSellerBooks.map((item, index) => (
+                {bestSellerFoods &&
+                  bestSellerFoods.map((item, index) => (
                     <Link
-                      to={`books/${item.id}`}
+                      to={`foods/${item.id}`}
                       className="item"
                       key={item.name + index}
                     >
@@ -328,10 +328,10 @@ export default function HomePage() {
             <h4 className="heading">Newest</h4>
             <div className="newest-list">
               <Slider {...settings}>
-                {newestBooks &&
-                  newestBooks.map((item, index) => (
+                {newestFoods &&
+                  newestFoods.map((item, index) => (
                     <Link
-                      to={`books/${item.id}`}
+                      to={`foods/${item.id}`}
                       className="item"
                       key={item.name + index}
                     >
@@ -368,7 +368,7 @@ export default function HomePage() {
 
       </div>
         <div className="container-fluid grid-content">
-          <h3 className="title">Grid display books</h3>
+          <h3 className="title">Grid display foods</h3>
           <Form
             scrollToFirstError
             form={form}
@@ -388,8 +388,8 @@ export default function HomePage() {
                 placeholder="Select your cateogry"
                 onChange={(value) => dispatch(changeSearchCategory(value))}
               >
-                {bookCategory &&
-                  bookCategory.map((item, index) => (
+                {foodCategory &&
+                  foodCategory.map((item, index) => (
                     <Option key={index} value={item.category_name}>
                       {item.category_name}
                     </Option>
@@ -399,7 +399,7 @@ export default function HomePage() {
 
             <Button
               type="button"
-              className="button button--main--book"
+              className="button button--main--food"
               onClick={() => {
                 dispatch(changeSearchCategory(""));
                 dispatch(changeSearchTerm(""));
@@ -410,10 +410,10 @@ export default function HomePage() {
             </Button>
           </Form>
           <div className="grid-product">
-            {cloneBooks &&
-              cloneBooks.map((item, index) => (
+            {cloneFoods &&
+              cloneFoods.map((item, index) => (
                 <Link
-                  to={`books/${item.id}`}
+                  to={`foods/${item.id}`}
                   className="item"
                   key={item.created_at + index}
                 >
@@ -442,7 +442,7 @@ export default function HomePage() {
             limit={10}
             setPage={setPage}
             currentPage={page}
-            count={filteredBooks.length}
+            count={filteredFoods.length}
           />
         </div>
        <div className="right-banner">

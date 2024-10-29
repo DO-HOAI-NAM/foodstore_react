@@ -18,26 +18,26 @@ import { useParams } from "react-router-dom";
 import {
   addFavorite,
   addWatch,
-  checkBook,
-  commentBook,
+  checkFood,
+  commentFood,
   fetchComment,
-  selectBookFavorite,
-  selectBookNeedUpdate,
-} from "../../../store/slices/booksSlice";
-import { fetchOneBook } from "../../../store/slices/booksSlice";
+  selectFoodFavorite,
+  selectFoodNeedUpdate,
+} from "../../../store/slices/foodsSlice";
+import { fetchOneFood } from "../../../store/slices/foodsSlice";
 import { selectCurrentUser } from "../../../store/slices/usersSlice";
 import TextArea from "antd/lib/input/TextArea";
 import { isLogin } from "../../../helpers/isLogin";
 import { addItemToCart } from "../../../store/slices/cartSlice";
 
-export default function BookDetail() {
+export default function FoodDetail() {
   const dispatch = useDispatch();
-  const { book_id } = useParams();
+  const { food_id } = useParams();
   const [formComment] = Form.useForm();
   const [formAddToCart] = Form.useForm();
   const currentUser = useSelector(selectCurrentUser);
-  const favorites = useSelector(selectBookFavorite);
-  const productNeedUpdate = useSelector(selectBookNeedUpdate);
+  const favorites = useSelector(selectFoodFavorite);
+  const productNeedUpdate = useSelector(selectFoodNeedUpdate);
   const [quantity, setQuantity] = useState(0);
 
   // Fill value to input quantity
@@ -47,24 +47,24 @@ export default function BookDetail() {
     });
   }, [formAddToCart, quantity]);
 
-  // Get exact book
+  // Get exact food
   useEffect(() => {
-    if (book_id) {
-      dispatch(fetchOneBook(book_id));
+    if (food_id) {
+      dispatch(fetchOneFood(food_id));
     }
-  }, [book_id, dispatch]);
+  }, [food_id, dispatch]);
 
   // Check favorite and watch
   // useEffect(() => {
-  //   if (isLogin()) dispatch(checkBook(book_id));
-  // }, [book_id, dispatch]);
+  //   if (isLogin()) dispatch(checkFood(food_id));
+  // }, [food_id, dispatch]);
 
   const handleClickFavorite = () => {
-    dispatch(addFavorite(book_id));
+    dispatch(addFavorite(food_id));
   };
 
   const handleClickWatch = () => {
-    dispatch(addWatch(book_id));
+    dispatch(addWatch(food_id));
   };
 
   const handleFinishOrder = (values) => {};
@@ -96,9 +96,9 @@ console.log('currentUser', currentUser)
     const data = {
       user_id: currentUser.user_id,
       comment: values.comment,
-      product_id: book_id,
+      product_id: food_id,
     };
-    dispatch(commentBook(data));
+    dispatch(commentFood(data));
   };
 
   console.log('productNeedUpdate',productNeedUpdate);
@@ -109,9 +109,9 @@ console.log('currentUser', currentUser)
       <Navigation />
 
       {Object.keys(productNeedUpdate).length > 0 && (
-        <div className="book-detail-container container-space">
+        <div className="food-detail-container container-space">
           <div className="container-fluid">
-            <Row className="book-detail-content">
+            <Row className="food-detail-content">
               <Col xl={8}>
                 <div className="image-container">
                   <img
@@ -119,7 +119,7 @@ console.log('currentUser', currentUser)
                     src={
                       productNeedUpdate.image
                         ? productNeedUpdate.image
-                        : "https://img.freepik.com/free-vector/blank-book-cover-white-vector-illustration_1284-41903.jpg?w=360"
+                        : "https://img.freepik.com/free-vector/blank-food-cover-white-vector-illustration_1284-41903.jpg?w=360"
                     }
                     alt="current product"
                   />
@@ -138,8 +138,8 @@ console.log('currentUser', currentUser)
                 </div>
               </Col>
               <Col xl={16}>
-                <div className="book-info-container">
-                  <h2 className="book-title">{productNeedUpdate.title}</h2>
+                <div className="food-info-container">
+                  <h2 className="food-title">{productNeedUpdate.title}</h2>
                   <div className="rate-container">
                     <div className="stars-list">
                       <span className="num">4.5</span>
@@ -164,7 +164,7 @@ console.log('currentUser', currentUser)
                       <span className="text">Sold</span>
                     </div>
                     <div className="favorite">
-                      {favorites.includes(productNeedUpdate.book_id) ? (
+                      {favorites.includes(productNeedUpdate.food_id) ? (
                         <AiFillHeart
                           className="icon"
                           onClick={handleClickFavorite}
@@ -283,18 +283,18 @@ console.log('currentUser', currentUser)
             </Row>
 
             <Row
-              className="book-info-content"
+              className="food-info-content"
               gutter={{
                 xl: 10,
               }}
             >
               <Col xl={18}>
-                <div className="book-info-item">
+                <div className="food-info-item">
                   <h2 className="title">Food Description</h2>
                   <p className="description">{productNeedUpdate.description}</p>
                 </div>
 
-                <div className="book-info-item">
+                <div className="food-info-item">
                   <h2 className="title">Food Ratings</h2>
                   <div className="comment-action">
                     <div className="left">
@@ -373,7 +373,7 @@ console.log('currentUser', currentUser)
                 </div>
               </Col>
               <Col xl={6}>
-                <div className="book-info-item voucher-container">
+                <div className="food-info-item voucher-container">
                   <h2 className="title">Shop Vouchers</h2>
                   <div className="voucher-item">
                     <div className="left">

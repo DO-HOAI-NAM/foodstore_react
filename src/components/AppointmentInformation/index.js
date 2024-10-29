@@ -15,7 +15,7 @@ export default function AppointmentInformation({ info }) {
   return (
     <div className="appointment-information-container">
       {/* Service */}
-      <div className="booking-service">
+      <div className="fooding-service">
         <h3 className="title">Service</h3>
         <p className="info">
           <span className="left">Type</span>
@@ -24,7 +24,7 @@ export default function AppointmentInformation({ info }) {
       </div>
 
       {/* Customer */}
-      <div className="booking-service">
+      <div className="fooding-service">
         <h3 className="title">Customer</h3>
         <p className="info">
           <span className="left">Customer</span>
@@ -51,7 +51,7 @@ export default function AppointmentInformation({ info }) {
       </div>
 
       {/* Doctor */}
-      <div className="booking-doctor">
+      <div className="fooding-doctor">
         <h3 className="title">Doctor</h3>
         <p className="info">
           <span className="left">Doctor</span>

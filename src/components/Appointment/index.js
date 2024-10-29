@@ -60,7 +60,7 @@ export default function Appointment() {
               <Form
                 className="appointment-form"
                 // form={appointmentForm}
-                // onFinish={handleSubmitBook}
+                // onFinish={handleSubmitFood}
                 name="appointmentForm"
                 scrollToFirstError
               >

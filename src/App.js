@@ -10,7 +10,7 @@ import SignUp from "./pages/signUp";
 import Verify from "./pages/verify";
 import PrivateRoute from "./routes/PrivateRoute";
 import appRoutes from "./routes/routes";
-import BookDetailPage from "./pages/bookStore/detail";
+import FoodDetailPage from "./pages/foodStore/detail";
 
 function App() {
   const renderRoutes = (routes) =>
@@ -55,7 +55,7 @@ function App() {
           path="/articles/detail/:slug"
           element={<ArticleDetailPage />}
         ></Route>
-        <Route path="/books/:book_id" element={<BookDetailPage />}></Route>
+        <Route path="/foods/:food_id" element={<FoodDetailPage />}></Route>
         {renderRoutes(appRoutes)}
         <Route path="*" element={<NoMatch />}></Route>
       </Routes>

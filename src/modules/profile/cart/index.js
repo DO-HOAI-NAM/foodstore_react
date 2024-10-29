@@ -54,13 +54,13 @@ export default function Cart() {
       <h4 className="object">{}</h4>
       <div className="button-container">
         <Button
-          className="button button--light--book"
+          className="button button--light--food"
           onClick={() => setIsShowDelete(false)}
         >
           Cancel
         </Button>
         <Button
-          className="button button--main--book rounded"
+          className="button button--main--food rounded"
           onClick={handleDeleteProduct}
         >
           Delete
@@ -77,7 +77,7 @@ export default function Cart() {
           cart.map((item, index) => (
             <div key={item.id + index} className="cart-item">
               {/* <img
-                alt="cover book"
+                alt="cover food"
                 className="img"
                 src={`${process.env.REACT_APP_API_URL}/documents/${item.product.documents[0].document}`}
               /> */}
@@ -133,7 +133,7 @@ export default function Cart() {
       <Button
         onClick={handleCreatePayment}
         disabled={false}
-        className="button button--main--book"
+        className="button button--main--food"
         type="button"
       >
         <span>Checkout</span>

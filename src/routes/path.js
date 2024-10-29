@@ -13,6 +13,6 @@ export const PATH_PATIENT_PROFILE_MEDICAL_RECORD_DETAIL =
 export const PATH_PATIENT_PROFILE_CHANGE_PASSWORD = "change-password";
 
 // Food Store
-export const PATH_BOOK_DETAIL = "/books/:book_id";
+export const PATH_BOOK_DETAIL = "/foods/:food_id";
 export const PATH_PATIENT_PROFILE_PAYMENT_CHECKOUT =
   "/payment/checkout/:payment_id";

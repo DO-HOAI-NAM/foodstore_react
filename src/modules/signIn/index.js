@@ -85,22 +85,6 @@ export default function SigninForm() {
                 />
               </Form.Item>
 
-              {/* Forgot Password */}
-              <Form.Item
-                style={{ textAlign: "right" }}
-                valuePropName="checked"
-                name="forgot_password"
-                className="form-input-group"
-              >
-                <span
-                  className="forgot-pw"
-                  defaultChecked={false}
-                  // onClick={() => setForgotPw(true)}
-                >
-                  Forgot password?
-                </span>
-              </Form.Item>
-
               {/* Button */}
               <Form.Item className="form-input-group">
                 <Button type="submit" className="button button--blue--dark">
@@ -113,7 +97,7 @@ export default function SigninForm() {
             <div className="other-options">
               <h3 className="title">Or sign in by using</h3>
               <ul className="socials">
-                <li className="item facebook">
+                <li className="item facefood">
                   <FaFacebookF className="icon" />
                 </li>
                 <li className="item twitter">
