@@ -25,7 +25,7 @@ const orderAPI = {
     const url = `/patient/detail/create_payment_url`;
     return axiosClient.post(url, payment);
   },
-  // Book store
+  // Food store
   addPayment() {
     const url = `/orders`;
     return axiosClient.post(url);

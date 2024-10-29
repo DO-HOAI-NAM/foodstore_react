@@ -26,6 +26,7 @@ export default function Header() {
     }
   }, [dispatch, currentUser]);
   console.log('user header', currentUser);
+  console.log('isLogin', isLogin);
   return (
     <section className="header-container">
       <div className="header-content">

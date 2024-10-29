@@ -90,7 +90,7 @@ export default function AppointmentInformation({ info }) {
         </p>
         <p className="info">
           <span className="left">Promotion</span>
-          <span className="right">Cheapest Book</span>
+          <span className="right">Cheapest Food</span>
         </p>
       </div>
     </div>

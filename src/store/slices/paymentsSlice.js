@@ -62,7 +62,7 @@ export const fetchDetails = createAsyncThunk(
   }
 );
 
-// Book store
+// Food store
 
 export const createPayment = createAsyncThunk(
   "paymentsSlice/createPayment",
@@ -175,7 +175,7 @@ const paymentsSlice = createSlice({
       state.isLoading = false;
       state.hasError = true;
     },
-    // Book Store
+    // Food Store
     // Add payment
     [createPayment.pending]: (state) => {
       state.isLoading = true;

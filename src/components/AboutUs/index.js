@@ -34,7 +34,7 @@ export default function AboutUs() {
                 <li className="about-item">
                   <div className="content">
                     <IoCheckmarkDone className="icon" />
-                    <span className="text"> Manga, Light novel</span>
+                    <span className="text"> Chicken Fried</span>
                   </div>
                 </li>
               </Animate.FadeInUp>
@@ -42,7 +42,7 @@ export default function AboutUs() {
                 <li className="about-item">
                   <div className="content">
                     <IoCheckmarkDone className="icon" />
-                    <span className="text">Guide and Textbook</span>
+                    <span className="text">Fish and Chip</span>
                   </div>
                 </li>
               </Animate.FadeInUp>
@@ -50,7 +50,7 @@ export default function AboutUs() {
                 <li className="about-item">
                   <div className="content">
                     <IoCheckmarkDone className="icon" />
-                    <span className="text">Album</span>
+                    <span className="text">Fast Food</span>
                   </div>
                 </li>
               </Animate.FadeInUp>
@@ -58,7 +58,7 @@ export default function AboutUs() {
                 <li className="about-item">
                   <div className="content">
                     <IoCheckmarkDone className="icon" />
-                    <span className="text">CD</span>
+                    <span className="text">Sushi</span>
                   </div>
                 </li>
               </Animate.FadeInUp>
@@ -66,7 +66,7 @@ export default function AboutUs() {
                 <li className="about-item">
                   <div className="content">
                     <IoCheckmarkDone className="icon" />
-                    <span className="text">Novel</span>
+                    <span className="text">Pho</span>
                   </div>
                 </li>
               </Animate.FadeInUp>
@@ -74,7 +74,7 @@ export default function AboutUs() {
                 <li className="about-item">
                   <div className="content">
                     <IoCheckmarkDone className="icon" />
-                    <span className="text">Art</span>
+                    <span className="text">Banh My</span>
                   </div>
                 </li>
               </Animate.FadeInUp>

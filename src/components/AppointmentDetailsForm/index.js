@@ -197,7 +197,7 @@ export default function AppointmentDetailsForm({
           </Form.Item>
 
           <Form.Item name="foreigner" valuePropName="checked">
-            <Checkbox>Book for a foreigner</Checkbox>
+            <Checkbox>Food for a foreigner</Checkbox>
           </Form.Item>
         </Col>
         <Col className="right" md={12} lg={12} xl={12} xxl={12}>

@@ -20,19 +20,19 @@ export default function Appointment() {
               <Animate.ScaleInCenter>
                 <li className="info-item">
                   <div className="info-num-container">
-                    <span className="num">12500</span>
+                    <span className="num">5000</span>
                     <span className="icon">&#43;</span>
                   </div>
-                  <p className="text">Books</p>
+                  <p className="text">Products</p>
                 </li>
               </Animate.ScaleInCenter>
               <Animate.ScaleInCenter>
                 <li className="info-item">
                   <div className="info-num-container">
-                    <span className="num">700</span>
+                    <span className="num">100</span>
                     <span className="icon">&#43;</span>
                   </div>
-                  <p className="text">Series</p>
+                  <p className="text">Categories</p>
                 </li>
               </Animate.ScaleInCenter>
               <Animate.ScaleInCenter>
@@ -47,10 +47,10 @@ export default function Appointment() {
               <Animate.ScaleInCenter>
                 <li className="info-item">
                   <div className="info-num-container">
-                    <span className="num">25</span>
+                    <span className="num">120</span>
                     <span className="icon">&#43;</span>
                   </div>
-                  <p className="text">Supplier</p>
+                  <p className="text">Brand</p>
                 </li>
               </Animate.ScaleInCenter>
             </ul>

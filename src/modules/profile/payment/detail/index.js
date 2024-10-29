@@ -65,7 +65,7 @@ export default function PaymentDetail() {
 
   const detailColumns = [
     {
-      title: "Book Name",
+      title: "Food Name",
       index: "product_name",
       dataIndex: "product_name",
     },
@@ -135,10 +135,10 @@ export default function PaymentDetail() {
                   <div className="info-item">
                     <p className="payment-title">Invoice From </p>
                     <p className="payment-info">
-                      {/* Book Store - {clinic.clinic.address ?? "Xuan Mai"},{" "}
+                      {/* Food Store - {clinic.clinic.address ?? "Xuan Mai"},{" "}
                       {clinic.clinic.state ?? "Chuong My"},{" "}
                       {clinic.clinic.city ?? "Ha Noi"}{" "} */}
-                      Book Store - My Dinh - Nam Tu Liem - Ha Noi
+                      Food Store - My Dinh - Nam Tu Liem - Ha Noi
                     </p>
                   </div>
                 </Col>

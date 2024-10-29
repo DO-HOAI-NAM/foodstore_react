@@ -2,10 +2,10 @@ import React from 'react';
 import { FaFacebookF, FaPinterestP, FaInstagram } from 'react-icons/fa';
 import { AiOutlineTwitter } from 'react-icons/ai';
 
-import doctor1 from '../../assets/img/book1.jpg';
-import doctor2 from '../../assets/img/book2.jpg';
-import doctor3 from '../../assets/img/book3.webp';
-import doctor4 from '../../assets/img/book4.jpg';
+import doctor1 from '../../assets/img/book1.jfif';
+import doctor2 from '../../assets/img/book2.avif';
+import doctor3 from '../../assets/img/book3.jfif';
+import doctor4 from '../../assets/img/book4.jfif';
 import { Animate } from '../AnimateIn';
 
 export default function Doctor() {
@@ -16,7 +16,7 @@ export default function Doctor() {
           <Animate.ScaleInCenter>
             <div className="section-title">
               <h4 className="heading">Our Store</h4>
-              <h3 className="title">Lastest Book</h3>
+              <h3 className="title">Lastest food</h3>
               <p className="description">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
@@ -29,8 +29,8 @@ export default function Doctor() {
               <li className="doctor-item">
                 <img src={doctor1} alt="doctor" className="doctor-avatar" />
                 <div className="content">
-                  <h3 className="name">The garden of words</h3>
-                  <span className="specialized">Shinkai Makoto</span>
+                  <h3 className="name">BBG</h3>
+                  <span className="specialized">I Love Meat</span>
                   <ul className="social-list">
                     <li className="social-item facebook">
                       <FaFacebookF className="icon" />
@@ -52,8 +52,8 @@ export default function Doctor() {
               <li className="doctor-item">
                 <img src={doctor2} alt="doctor" className="doctor-avatar" />
                 <div className="content">
-                  <h3 className="name">Suzume</h3>
-                  <span className="specialized">Shinkai Makoto</span>
+                  <h3 className="name">Fried Chicken</h3>
+                  <span className="specialized">KFC</span>
                   <ul className="social-list">
                     <li className="social-item facebook">
                       <FaFacebookF className="icon" />
@@ -75,8 +75,8 @@ export default function Doctor() {
               <li className="doctor-item">
                 <img src={doctor3} alt="doctor" className="doctor-avatar" />
                 <div className="content">
-                  <h3 className="name">Your Name</h3>
-                  <span className="specialized">Shinkai Makoto</span>
+                  <h3 className="name">Sushi</h3>
+                  <span className="specialized">Fresh Sushi</span>
                   <ul className="social-list">
                     <li className="social-item facebook">
                       <FaFacebookF className="icon" />
@@ -98,8 +98,8 @@ export default function Doctor() {
               <li className="doctor-item">
                 <img src={doctor4} alt="doctor" className="doctor-avatar" />
                 <div className="content">
-                  <h3 className="name">Weathering with you</h3>
-                  <span className="specialized">Shinkai Makoto</span>
+                  <h3 className="name">Vegatables</h3>
+                  <span className="specialized">Bach Hoa Xanh</span>
                   <ul className="social-list">
                     <li className="social-item facebook">
                       <FaFacebookF className="icon" />

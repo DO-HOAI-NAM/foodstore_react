@@ -40,7 +40,7 @@ const appointmentsSlice = createSlice({
   },
   reducers: {},
   extraReducers: {
-    // Book appointment
+    // Food appointment
     [bookAppointment.pending]: (state) => {
       state.isLoading = true;
       state.hasError = false;

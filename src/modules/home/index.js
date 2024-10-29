@@ -192,7 +192,7 @@ export default function HomePage() {
       {/* Discover */}
       <section className="discover-container container-space">
         <div className="container-fluid">
-          <h3 className="title">Discover Your Next Book</h3>
+          <h3 className="title">Discover Your Next Food</h3>
           <div className="discover-content">
             <h4 className="heading">New Releases</h4>
             <div className="grid-product">
@@ -282,7 +282,7 @@ export default function HomePage() {
       {/* Best Seller */}
       <section className="best-seller-container container-space">
         <div className="container-fluid">
-          <h3 className="title">Choose Best Seller Book</h3>
+          <h3 className="title">Choose Best Seller Food</h3>
           <div className="best-seller-content">
             <h4 className="heading">Best Seller</h4>
             <div className="best-seller-list">
@@ -323,7 +323,7 @@ export default function HomePage() {
       {/* Newest */}
       <section className="newest-container container-space">
         <div className="container-fluid">
-          <h3 className="title">Choose The Newest Book</h3>
+          <h3 className="title">Choose The Newest Food</h3>
           <div className="newest-content">
             <h4 className="heading">Newest</h4>
             <div className="newest-list">

@@ -235,7 +235,7 @@ const booksSlice = createSlice({
       state.isLoading = false;
       state.hasError = true;
     },
-    // Fetch One Book
+    // Fetch One Food
     [fetchOneBook.pending]: (state) => {
       state.isLoading = true;
       state.hasError = false;

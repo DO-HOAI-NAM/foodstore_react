@@ -290,12 +290,12 @@ console.log('currentUser', currentUser)
             >
               <Col xl={18}>
                 <div className="book-info-item">
-                  <h2 className="title">Book Description</h2>
+                  <h2 className="title">Food Description</h2>
                   <p className="description">{productNeedUpdate.description}</p>
                 </div>
 
                 <div className="book-info-item">
-                  <h2 className="title">Book Ratings</h2>
+                  <h2 className="title">Food Ratings</h2>
                   <div className="comment-action">
                     <div className="left">
                       <img
