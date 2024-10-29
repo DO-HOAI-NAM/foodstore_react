@@ -43,12 +43,12 @@ export default function Header() {
                     className="avatar"
                     src={
                       Object.keys(currentUser).length > 0
-                        ? currentUser.url[0].url
+                        ? currentUser.data.url
                         : ""
                     }
                     alt="avatar"
                   />
-                  Hello, {currentUser.name}
+                  Hello, {currentUser.data.name}
                 </Link>
                 <Button
                   onClick={() => {

@@ -301,11 +301,11 @@ console.log('currentUser', currentUser)
                       <img
                         className="avatar"
                         alt="avatar"
-                        src={currentUser.url[0].url}
+                        src={currentUser.data.url}
                       />
                     </div>
                     <div className="right">
-                      <h3 className="username">{currentUser.full_name}</h3>
+                      <h3 className="username">{currentUser.data.name}</h3>
                       <Form
                         className="form-comment"
                         scrollToFirstError

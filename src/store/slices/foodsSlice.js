@@ -323,7 +323,7 @@ const foodsSlice = createSlice({
       const currentUser = JSON.parse(localStorage.getItem("currentUser"));
       state.foodNeedUpdate.comments.unshift({
         ...action.payload,
-        avatar: currentUser.avatar,
+        avatar: currentUser.davatar,
         full_name: currentUser.name,
       });
 
