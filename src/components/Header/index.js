@@ -48,7 +48,7 @@ export default function Header() {
                     }
                     alt="avatar"
                   />
-                  Hello, {currentUser.data.name}
+                  Hello, { Object.keys(currentUser).length > 0 ? currentUser.data.name : ''}
                 </Link>
                 <Button
                   onClick={() => {

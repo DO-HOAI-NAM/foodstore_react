@@ -301,11 +301,13 @@ console.log('currentUser', currentUser)
                       <img
                         className="avatar"
                         alt="avatar"
-                        src={currentUser.data.url}
+                        src={ Object.keys(currentUser).length > 0 ?
+                          currentUser.data.url : ''}
                       />
                     </div>
                     <div className="right">
-                      <h3 className="username">{currentUser.data.name}</h3>
+                      <h3 className="username">{                      Object.keys(currentUser).length > 0
+? currentUser.data.name : ''}</h3>
                       <Form
                         className="form-comment"
                         scrollToFirstError
