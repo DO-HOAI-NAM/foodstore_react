@@ -5,7 +5,6 @@ import PageHeader from '../../components/PageHeader';
 import Header from '../../components/Header';
 import AboutUs from '../../components/AboutUs';
 import Doctor from '../../components/Doctor';
-import Appointment from '../../components/Appointment';
 import Footer from '../../components/Footer';
 import Partner from '../../components/Partner';
 
@@ -18,7 +17,6 @@ export default function AboutPage() {
       <div className="aboutpage-container mg-header">
         <AboutUs />
         <Doctor />
-        <Appointment />
         <Partner />
       </div>
       <Footer />

@@ -5,7 +5,6 @@ export const PATH_PATIENT_PROFILE_PAYMENTS = "payments";
 export const PATH_PATIENT_PROFILE_WATCH = "watch";
 export const PATH_PATIENT_PROFILE_FAVORITE = "favorite";
 export const PATH_PATIENT_PROFILE_PAYMENT_VIEW = "/payment/view/:order_id";
-export const PATH_PATIENT_PROFILE_APPOINTMENTS = "appointments";
 export const PATH_PATIENT_PROFILE_CART = "cart";
 export const PATH_PATIENT_PROFILE_MEDICAL_RECORDS = "medical-records";
 export const PATH_PATIENT_PROFILE_MEDICAL_RECORD_DETAIL =

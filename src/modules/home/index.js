@@ -32,7 +32,7 @@ import { fetchBanners, selectBanners } from "../../store/slices/bannerSlice";
 
 const mockAPI = [
   {
-    name: "A doctor in the house",
+    name: "Test 1",
     cover:
       "https://foodlovers.ancorathemes.com/wp-content/uploads/2020/05/food11-copyright.jpg",
     author: "Candy Carson",
@@ -40,7 +40,7 @@ const mockAPI = [
     price_to: "16.99",
   },
   {
-    name: "Wildflower",
+    name: "Test 2",
     cover:
       "https://foodlovers.ancorathemes.com/wp-content/uploads/2020/05/food13-copyright.jpg",
     author: "Drew Berrymore",
@@ -48,7 +48,7 @@ const mockAPI = [
     price_to: "20.00",
   },
   {
-    name: "New Galaxy",
+    name: "Test 3",
     cover:
       "https://foodlovers.ancorathemes.com/wp-content/uploads/2020/05/food8-copyright.jpg",
     author: "Richard Mann",
@@ -56,7 +56,7 @@ const mockAPI = [
     price_to: "16.90",
   },
   {
-    name: "The Long Road to the Depp Silence",
+    name: "Test 4",
     cover:
       "https://foodlovers.ancorathemes.com/wp-content/uploads/2020/05/food5-copyright.jpg",
     author: "Richard Mann",
@@ -64,7 +64,7 @@ const mockAPI = [
     price_to: "22.00",
   },
   {
-    name: "Life in the Garden",
+    name: "Test 5",
     cover:
       "https://foodlovers.ancorathemes.com/wp-content/uploads/2020/05/food4-copyright.jpg",
     author: "Candy Carson",
@@ -72,7 +72,7 @@ const mockAPI = [
     price_to: "25.00",
   },
   {
-    name: "It's a Really Strange Story",
+    name: "Test 6",
     cover:
       "https://foodlovers.ancorathemes.com/wp-content/uploads/2020/05/food12-copyright.jpg",
     author: "Burt Geller",
