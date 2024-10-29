@@ -301,7 +301,7 @@ console.log('currentUser', currentUser)
                       <img
                         className="avatar"
                         alt="avatar"
-                        src={currentUser.url[0].url}
+                        src={currentUser.data.url}
                       />
                     </div>
                     <div className="right">
