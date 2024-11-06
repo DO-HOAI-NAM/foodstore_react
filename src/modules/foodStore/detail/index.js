@@ -67,7 +67,7 @@ export default function FoodDetail() {
     dispatch(addWatch(food_id));
   };
 
-  const handleFinishOrder = (values) => {};
+  const handleFinishOrder = (values) => { };
 
   const handleClickMinus = () => {
     if (quantity === 0) return false;
@@ -79,7 +79,7 @@ export default function FoodDetail() {
   };
 
   console.log('productNeedUpdate', productNeedUpdate);
-console.log('currentUser', currentUser)
+  console.log('currentUser', currentUser)
   const handleAddToCart = () => {
     const data = {
       amount: quantity,
@@ -101,7 +101,7 @@ console.log('currentUser', currentUser)
     dispatch(commentFood(data));
   };
 
-  console.log('productNeedUpdate',productNeedUpdate);
+  console.log('productNeedUpdate', productNeedUpdate);
   console.log('currentUser', currentUser);
   return (
     <div className="app-container ">
@@ -301,11 +301,11 @@ console.log('currentUser', currentUser)
                       <img
                         className="avatar"
                         alt="avatar"
-                        src={currentUser.data.url}
+                        src={currentUser?.data.url}
                       />
                     </div>
                     <div className="right">
-                      <h3 className="username">{currentUser.data.name}</h3>
+                      <h3 className="username">{currentUser?.data.name}</h3>
                       <Form
                         className="form-comment"
                         scrollToFirstError
@@ -385,7 +385,7 @@ console.log('currentUser', currentUser)
                     </div>
                     <div className="right">
                       <Button
-                        onClick={() => {}}
+                        onClick={() => { }}
                         disabled={false}
                         className="button square button--light buyNow-btn"
                         type="button"
@@ -404,7 +404,7 @@ console.log('currentUser', currentUser)
                     </div>
                     <div className="right">
                       <Button
-                        onClick={() => {}}
+                        onClick={() => { }}
                         disabled={false}
                         className="button square button--light buyNow-btn"
                         type="button"
