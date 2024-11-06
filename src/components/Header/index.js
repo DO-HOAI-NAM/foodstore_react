@@ -1,32 +1,22 @@
 import React, { useEffect } from "react";
 import { Col, Row } from "antd";
-import { BsClock } from "react-icons/bs";
-import {
-  FaFacebookF,
-  FaPinterestP,
-  FaInstagram,
-  FaTelegramPlane,
-  FaPhoneAlt,
-} from "react-icons/fa";
-import { AiOutlineTwitter } from "react-icons/ai";
-
-import Button from "../../components/Button";
-import { Link } from "react-router-dom";
-import { isLogin } from "../../helpers/isLogin";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getIdentity, selectCurrentUser } from "../../store/slices/usersSlice";
+import Button from "../../components/Button";
+import { isLogin } from "../../helpers/isLogin";
 
 export default function Header() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const currentUser = useSelector(selectCurrentUser);
 
   useEffect(() => {
-    if (isLogin() && Object.keys(currentUser).length === 0) {
+    if (isLogin() && !currentUser?.data) {
       dispatch(getIdentity());
     }
   }, [dispatch, currentUser]);
-  console.log('user header', currentUser);
-  console.log('isLogin', isLogin);
+
   return (
     <section className="header-container">
       <div className="header-content">
@@ -41,20 +31,16 @@ export default function Header() {
                 >
                   <img
                     className="avatar"
-                    src={
-                      Object.keys(currentUser).length > 0
-                        ? currentUser.data.url
-                        : ""
-                    }
+                    src={currentUser?.data?.url || ""}
                     alt="avatar"
                   />
-                  Hello, { Object.keys(currentUser).length > 0 ? currentUser.data.name : ''}
+                  Hello, {currentUser?.data?.name || "User"}
                 </Link>
                 <Button
                   onClick={() => {
                     localStorage.removeItem("currentUser");
                     localStorage.removeItem("accessToken");
-                    window.location.href = "/signin";
+                    navigate("/signin");
                   }}
                   type="button"
                   className="button button--text--white sign-out-btn"

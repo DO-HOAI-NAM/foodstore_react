@@ -85,7 +85,7 @@ console.log('currentUser', currentUser)
       amount: quantity,
       product_id: productNeedUpdate.id,
       price: parseFloat(productNeedUpdate.price),
-      user_id: currentUser.data.id,
+      user_id: currentUser?.data.id,
     };
     dispatch(addItemToCart(data));
     window.location.reload(false);
@@ -301,13 +301,13 @@ console.log('currentUser', currentUser)
                       <img
                         className="avatar"
                         alt="avatar"
-                        src={ Object.keys(currentUser).length > 0 ?
+                        src={ Object.keys(currentUser).length > 0 && currentUser.data ?
                           currentUser.data.url : ''}
                       />
                     </div>
                     <div className="right">
                       <h3 className="username">{                      Object.keys(currentUser).length > 0
-? currentUser.data.name : ''}</h3>
+? currentUser?.data.name : ''}</h3>
                       <Form
                         className="form-comment"
                         scrollToFirstError
