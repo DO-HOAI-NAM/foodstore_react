@@ -85,7 +85,7 @@ export default function FoodDetail() {
       amount: quantity,
       product_id: productNeedUpdate.id,
       price: parseFloat(productNeedUpdate.price),
-      user_id: currentUser.data.id,
+      user_id: currentUser?.data.id,
     };
     dispatch(addItemToCart(data));
     window.location.reload(false);
@@ -139,7 +139,7 @@ export default function FoodDetail() {
               </Col>
               <Col xl={16}>
                 <div className="food-info-container">
-                  <h2 className="food-title">{productNeedUpdate.title}</h2>
+                  <h2 className="food-title">{productNeedUpdate.product_name} ấdđ</h2>
                   <div className="rate-container">
                     <div className="stars-list">
                       <span className="num">4.5</span>
@@ -301,11 +301,13 @@ export default function FoodDetail() {
                       <img
                         className="avatar"
                         alt="avatar"
-                        src={currentUser?.data.url}
+                        src={Object.keys(currentUser).length > 0 && currentUser.data ?
+                          currentUser.data.url : ''}
                       />
                     </div>
                     <div className="right">
-                      <h3 className="username">{currentUser?.data.name}</h3>
+                      <h3 className="username">{Object.keys(currentUser).length > 0
+                        ? currentUser?.data.name : ''}</h3>
                       <Form
                         className="form-comment"
                         scrollToFirstError
