@@ -139,7 +139,7 @@ console.log('currentUser', currentUser)
               </Col>
               <Col xl={16}>
                 <div className="food-info-container">
-                  <h2 className="food-title">{productNeedUpdate.title}</h2>
+                  <h2 className="food-title">{productNeedUpdate.product_name} ấdđ</h2>
                   <div className="rate-container">
                     <div className="stars-list">
                       <span className="num">4.5</span>
