@@ -25,10 +25,11 @@ export default function MyProfile() {
               <div className="sidebar-container">
                 <div className="sidebar-header">
                   <img
+                    crossOrigin='anonymous'
                     className="avatar"
                     src={
                       Object.keys(currentUser).length > 0
-                        ? currentUser.url[0].url
+                        ? `http://localhost:4000/public/uploads/${currentUser.url[0].url}`
                         : ""
                     }
                     alt="avatar"

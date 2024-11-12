@@ -41,7 +41,7 @@ export default function Watch() {
       dataIndex: 'product_image',
       width: '20%',
       height: '100',
-      render: Product_Image => <img style={{ width: '50%'}} alt={Product_Image} src={Product_Image} />
+      render: Product_Image => <img style={{ width: '50%'}} alt={Product_Image} src={`http://localhost:4000/public/uploads/${Product_Image}`} />
     },
     {
       title: 'Created Date',

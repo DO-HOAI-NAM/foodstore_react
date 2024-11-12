@@ -21,17 +21,6 @@ export default function Footer() {
               </p>
               <ul className="social-list"></ul>
             </div>
-            {/* <div className="footer-item">
-              <h3 className="title">Instagram</h3>
-              <ul className="image-list">
-                <Image src={doctor1} className="image" />
-                <Image src={doctor2} className="image" />
-                <Image src={doctor3} className="image" />
-                <Image src={doctor1} className="image" />
-                <Image src={doctor2} className="image" />
-                <Image src={doctor3} className="image" />
-              </ul>
-            </div> */}
             <div className="footer-item">
               <h3 className="title">Userful Links</h3>
               <ul className="link-list">

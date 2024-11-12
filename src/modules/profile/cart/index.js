@@ -76,12 +76,6 @@ export default function Cart() {
         {cart && Object.keys(cart).length > 0 &&
           cart.map((item, index) => (
             <div key={item.id + index} className="cart-item">
-              {/* <img
-                alt="cover food"
-                className="img"
-                src={`${process.env.REACT_APP_API_URL}/documents/${item.product.documents[0].document}`}
-              /> */}
-              {/* <h3 className="name">{item.product.title}</h3> */}
               <h3 className="id">{index}</h3>
               <h3 className="name">{cart.product_name}</h3>
               <h4 className="price">₫{item.price}</h4>
