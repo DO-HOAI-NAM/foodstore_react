@@ -90,7 +90,7 @@ export default function ArticleDetail() {
                       >
                         <img
                           className="thumbnail"
-                          src={item.image}
+                          src={`http://localhost:4000/public/uploads/${item.image}`}
                           alt="lastest thumbnail"
                         />
                         <div className="sub-content">

@@ -118,23 +118,11 @@ export default function FoodDetail() {
                     className="image-current"
                     src={
                       productNeedUpdate.image
-                        ? productNeedUpdate.image
+                        ? `http://localhost:4000/public/uploads/${productNeedUpdate.image}`
                         : "https://img.freepik.com/free-vector/blank-food-cover-white-vector-illustration_1284-41903.jpg?w=360"
                     }
                     alt="current product"
                   />
-                  {/* <div className="image-list">
-                    {productNeedUpdate.documents &&
-                      productNeedUpdate.documents.length > 0 &&
-                      productNeedUpdate.documents.map((src, index) => (
-                        <img
-                          key={productNeedUpdate.document + }
-                          className="image-item"
-                          alt="remain img current"
-                          src={`${process.env.REACT_APP_API_image}/documents/${src.document}`}
-                        />
-                      ))}
-                  </div> */}
                 </div>
               </Col>
               <Col xl={16}>
@@ -339,39 +327,6 @@ export default function FoodDetail() {
                       </Form>
                     </div>
                   </div>
-                  {/* <div className="comment-list">
-                    {productNeedUpdate.comments.map((item, index) => (
-                      <div
-                        className="comment-item"
-                        key={item.full_name + index}
-                      >
-                        <img
-                          alt="avatar"
-                          src={`${process.env.REACT_APP_API_image}/${item.avatar}`}
-                          className="avatar"
-                        ></img>
-                        <div className="comment-content">
-                          <h3 className="username">{item.full_name}</h3>
-                          <div className="stars-list">
-                            <div className="stars">
-                              <BsStarFill />
-                              <BsStarFill />
-                              <BsStarFill />
-                              <BsStarFill />
-                              <BsStarHalf />
-                            </div>
-                          </div>
-                          <p className="date">
-                            {moment(new Date(item.created_at)).format(
-                              "YYYY-MM-DD"
-                            )}
-                            - {moment(new Date(item.created_at)).format("LT")}
-                          </p>
-                          <p className="description">{item.comment}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div> */}
                 </div>
               </Col>
               <Col xl={6}>

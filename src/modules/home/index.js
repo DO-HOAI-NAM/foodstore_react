@@ -204,10 +204,11 @@ export default function HomePage() {
                     key={item.created_at + index}
                   >
                     <img
+                      crossOrigin='anonymous'
                       alt="img"
                       src={
                         item.image
-                          ? item.image
+                          ? `http://localhost:4000/public/uploads/${item.image}`
                           : mockAPI[3].cover
                       }
                       className="cover"
@@ -231,7 +232,7 @@ export default function HomePage() {
       {/* Trending */}
       <section className="trending-container container-space banner">
       <div className="left-banner">
-      <img src={banner.length > 0 ? banner[0].image_url : ''} alt="doctor" className="doctor-avatar" />
+      <img crossOrigin='anonymous'src={banner.length > 0 ? `http://localhost:4000/public/uploads/${banner[0].image_url}` : ''} alt="doctor" className="doctor-avatar" />
       </div>
 
         <div className="container-fluid middle">
@@ -249,10 +250,11 @@ export default function HomePage() {
                     >
                       <div className="product">{item.dayLeft} days left</div>
                       <img
+                        crossOrigin='anonymous'
                         alt="img"
                         src={
                           item.image
-                            ? item.image
+                            ? `http://localhost:4000/public/uploads/${item.image}`
                             : mockAPI[3].cover
                         }
                         className="cover"
@@ -273,7 +275,7 @@ export default function HomePage() {
           </div>
         </div>
         <div className="right-banner">
-        <img src={banner.length > 0 ? banner[1].image_url : ''} alt="doctor" className="doctor-avatar" />
+        <img crossOrigin='anonymous' src={banner.length > 0 ? `http://localhost:4000/public/uploads/${banner[1].image_url}` : ''} alt="doctor" className="doctor-avatar" />
 
         </div>
 
@@ -295,10 +297,11 @@ export default function HomePage() {
                       key={item.name + index}
                     >
                       <img
+                        crossOrigin='anonymous'
                         alt="img"
                         src={
                           item.image
-                            ? item.image
+                            ? `http://localhost:4000/public/uploads/${item.image}`
                             : mockAPI[3].cover
                         }
                         className="cover"
@@ -336,10 +339,11 @@ export default function HomePage() {
                       key={item.name + index}
                     >
                       <img
+                        crossOrigin='anonymous'
                         alt="img"
                         src={
                           item.image
-                            ? item.image
+                            ? `http://localhost:4000/public/uploads/${item.image}`
                             : mockAPI[3].cover
                         }
                         className="cover"
@@ -364,7 +368,7 @@ export default function HomePage() {
       {/* Display Grid Product */}
       <section className="list-container container-space banner">
       <div className="left-banner">
-        <img src={banner.length > 0 ? banner[2].image_url : ''} alt="doctor" className="doctor-avatar" />
+        <img crossOrigin='anonymous' src={banner.length > 0 ? `http://localhost:4000/public/uploads/${banner[2].image_url}` : ''} alt="doctor" className="doctor-avatar" />
 
       </div>
         <div className="container-fluid grid-content">
@@ -418,10 +422,11 @@ export default function HomePage() {
                   key={item.created_at + index}
                 >
                   <img
+                    crossOrigin='anonymous'
                     alt="img"
                     src={
                       item.image
-                        ? item.image
+                        ? `http://localhost:4000/public/uploads/${item.image}`
                         : mockAPI[3].cover
                     }
                     className="cover"
@@ -446,7 +451,7 @@ export default function HomePage() {
           />
         </div>
        <div className="right-banner">
-       <img src={banner.length > 0 ? banner[3].image_url : ''} alt="doctor" className="doctor-avatar" />
+       <img crossOrigin='anonymous' src={banner.length > 0 ? `http://localhost:4000/public/uploads/${banner[3].image_url}` : ''} alt="doctor" className="doctor-avatar" />
        </div>
       </section>
 
