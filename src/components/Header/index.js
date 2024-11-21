@@ -33,6 +33,7 @@ export default function Header() {
                     className="avatar"
                     src={currentUser?.data?.url || ""}
                     alt="avatar"
+                    crossOrigin='anonymous'
                   />
                   Hello, {currentUser?.data?.name || "User"}
                 </Link>

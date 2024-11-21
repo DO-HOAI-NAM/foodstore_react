@@ -218,7 +218,6 @@ export default function HomePage() {
                         <h3 className="name">
                           {item.product_name ? item.product_name : mockAPI[3].name}
                         </h3>
-                        <p className="author">{item.author}</p>
                       </div>
                       <p className="prices">${item.price}</p>
                     </div>
@@ -262,9 +261,8 @@ export default function HomePage() {
                       <div className="bottom">
                         <div className="info">
                           <h3 className="name">
-                            {item.title ? item.title : mockAPI[3].name}
+                            {item.product_name ? item.product_name : mockAPI[3].name}
                           </h3>
-                          <p className="author">{item.author}</p>
                         </div>
                         <p className="prices">${item.price}</p>
                       </div>
@@ -309,9 +307,8 @@ export default function HomePage() {
                       <div className="bottom">
                         <div className="info">
                           <h3 className="name">
-                            {item.title ? item.title : mockAPI[3].name}
+                            {item.product_name ? item.product_name : mockAPI[3].name}
                           </h3>
-                          <p className="author">{item.author}</p>
                         </div>
                         <p className="prices">${item.price}</p>
                       </div>
@@ -353,7 +350,6 @@ export default function HomePage() {
                           <h3 className="name">
                             {item.product_name ? item.product_name : mockAPI[3].name}
                           </h3>
-                          <p className="author">{item.author}</p>
                         </div>
                         <p className="prices">${item.price}</p>
                       </div>

@@ -122,12 +122,13 @@ console.log('currentUser', currentUser)
                         : "https://img.freepik.com/free-vector/blank-food-cover-white-vector-illustration_1284-41903.jpg?w=360"
                     }
                     alt="current product"
-                  />
+                    crossOrigin='anonymous'
+                    />
                 </div>
               </Col>
               <Col xl={16}>
                 <div className="food-info-container">
-                  <h2 className="food-title">{productNeedUpdate.product_name} ấdđ</h2>
+                  <h2 className="food-title">{productNeedUpdate.product_name}</h2>
                   <div className="rate-container">
                     <div className="stars-list">
                       <span className="num">4.5</span>
@@ -276,7 +277,7 @@ console.log('currentUser', currentUser)
                 xl: 10,
               }}
             >
-              <Col xl={18}>
+              <Col xl={24}>
                 <div className="food-info-item">
                   <h2 className="title">Food Description</h2>
                   <p className="description">{productNeedUpdate.description}</p>
@@ -325,49 +326,6 @@ console.log('currentUser', currentUser)
                           </Button>
                         </div>
                       </Form>
-                    </div>
-                  </div>
-                </div>
-              </Col>
-              <Col xl={6}>
-                <div className="food-info-item voucher-container">
-                  <h2 className="title">Shop Vouchers</h2>
-                  <div className="voucher-item">
-                    <div className="left">
-                      <p className="sale">₫30k off</p>
-                      <p className="min-spend">Min. Spend ₫500k</p>
-                      <span className="expired-date">
-                        Valid Till: 30.07.2023
-                      </span>
-                    </div>
-                    <div className="right">
-                      <Button
-                        onClick={() => {}}
-                        disabled={false}
-                        className="button square button--light buyNow-btn"
-                        type="button"
-                      >
-                        <span>Claim</span>
-                      </Button>
-                    </div>
-                  </div>
-                  <div className="voucher-item">
-                    <div className="left">
-                      <p className="sale">₫30k off</p>
-                      <p className="min-spend">Min. Spend ₫500k</p>
-                      <span className="expired-date">
-                        Valid Till: 30.07.2023
-                      </span>
-                    </div>
-                    <div className="right">
-                      <Button
-                        onClick={() => {}}
-                        disabled={false}
-                        className="button square button--light buyNow-btn"
-                        type="button"
-                      >
-                        <span>Claim</span>
-                      </Button>
                     </div>
                   </div>
                 </div>

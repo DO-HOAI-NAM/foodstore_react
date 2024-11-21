@@ -45,7 +45,22 @@ export default function SignUpForm() {
   const [form] = Form.useForm();
   const dispatch = useDispatch();
   const isLoading = useSelector(selectUserIsLoading);
-
+  
+  const validatePassword = async (_, value) => {
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  
+    if (!value) {
+      throw new Error("Password is required!");
+    }
+  
+    if (!passwordRegex.test(value)) {
+      throw new Error(
+        "Password must include at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character."
+      );
+    }
+  };
+  
   const handleSubmit = (values) => {
     const newPatient = {
       name: values.last_name + " " +values.first_name,
@@ -131,25 +146,27 @@ export default function SignUpForm() {
                   >
                     <Input className="input" placeholder="abc@gmail.com" />
                   </Form.Item>
-
-                  {/* Password */}
+                  {/* Password Field */}
                   <Form.Item
-                    style={{ marginTop: 10 }}
-                    name="password"
                     label="Password"
+                    name="password"
+                    style={{ marginTop: 10 }}
+
+                    validateTrigger={["onChange", "onSubmit"]}
                     rules={[
+                      { required: true, message: "Please input your password!" },
                       {
-                        required: true,
-                        message: "Please input your password!",
+                        validator: validatePassword
                       },
                     ]}
                     className="form-input-group"
+
                   >
-                    <Input.Password
-                      className="input"
-                      placeholder="Enter your password!"
-                    />
+                    <Input.Password className="input"           
+ placeholder="Enter your password" />
                   </Form.Item>
+
+
 
                   {/* Confirm Password */}
                   <Form.Item
