@@ -31,7 +31,7 @@ export default function Header() {
                 >
                   <img
                     className="avatar"
-                    src={currentUser?.data?.url || ""}
+                    src={`http://localhost:4000/public/uploads/${currentUser?.data?.url}` || ""}
                     alt="avatar"
                     crossOrigin='anonymous'
                   />

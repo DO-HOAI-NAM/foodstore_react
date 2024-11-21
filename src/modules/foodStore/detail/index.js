@@ -51,6 +51,7 @@ export default function FoodDetail() {
   useEffect(() => {
     if (food_id) {
       dispatch(fetchOneFood(food_id));
+      dispatch(checkFood(food_id))
     }
   }, [food_id, dispatch]);
 
@@ -58,6 +59,7 @@ export default function FoodDetail() {
   // useEffect(() => {
   //   if (isLogin()) dispatch(checkFood(food_id));
   // }, [food_id, dispatch]);
+
 
   const handleClickFavorite = () => {
     dispatch(addFavorite(food_id));
@@ -78,8 +80,6 @@ export default function FoodDetail() {
     setQuantity((prev) => prev + 1);
   };
 
-  console.log('productNeedUpdate', productNeedUpdate);
-console.log('currentUser', currentUser)
   const handleAddToCart = () => {
     const data = {
       amount: quantity,
@@ -101,8 +101,6 @@ console.log('currentUser', currentUser)
     dispatch(commentFood(data));
   };
 
-  console.log('productNeedUpdate',productNeedUpdate);
-  console.log('currentUser', currentUser);
   return (
     <div className="app-container ">
       <Header />
@@ -153,7 +151,7 @@ console.log('currentUser', currentUser)
                       <span className="text">Sold</span>
                     </div>
                     <div className="favorite">
-                      {favorites.includes(productNeedUpdate.food_id) ? (
+                      {favorites.includes(productNeedUpdate.id) ? (
                         <AiFillHeart
                           className="icon"
                           onClick={handleClickFavorite}

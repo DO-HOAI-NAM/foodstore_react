@@ -37,7 +37,6 @@ export default function ArticleDetail() {
     dispatch(fetchArticlesLatest());
   }, [dispatch]);
 
-  console.log(articleDetail)
   return (
     <>
       <ScrollToTop smooth color="#6f00ff" />
