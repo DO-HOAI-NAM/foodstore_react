@@ -42,6 +42,7 @@ export default function Cart() {
   const handleDeleteProduct = () => {
     dispatch(deleteItemInCart(productSelected.id));
     setIsShowDelete(false);
+    window.location.href = "/profile/cart";
   };
 
   const renderBody = () => (

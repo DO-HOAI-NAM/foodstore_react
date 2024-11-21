@@ -1,23 +1,24 @@
 import React, { useEffect } from 'react';
 import { Table } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { ImEye } from 'react-icons/im';
-import { AiFillPrinter } from 'react-icons/ai';
 
 import Button from '../../../components/Button';
 import {
   fetchFavorite,
   selectFavorites,
-  // selectfavoriteIsLoading,
 } from '../../../store/slices/paymentsSlice';
 import { formatDateAndTime } from '../../../helpers/formatDate';
-import { Link } from 'react-router-dom';
-import { deleteItemInCart } from '../../../store/slices/cartSlice';
+import { addFavorite } from '../../../store/slices/foodsSlice';
 
 export default function Favorite() {
   const dispatch = useDispatch();
   const favorites = useSelector(selectFavorites);
-  // const isLoading = useSelector(selectfavoriteIsLoading);
+
+  const handleDeleteProduct = (id) => {
+    dispatch(addFavorite(id))
+    console.log(`Deleting product with id: ${id}`);
+    window.location.href = "/profile/favorite"; // Redirect logic
+  };
 
   useEffect(() => {
     dispatch(fetchFavorite());
@@ -40,7 +41,14 @@ export default function Favorite() {
       dataIndex: 'product_image',
       width: '20%',
       height: '100',
-      render: Product_Image => <img style={{ width: '50%'}} alt={Product_Image} src={`http://localhost:4000/public/uploads/${Product_Image}`} />
+      render: (Product_Image) => (
+        <img
+          crossOrigin="anonymous"
+          style={{ width: '50%' }}
+          alt={Product_Image}
+          src={`http://localhost:4000/public/uploads/${Product_Image}`}
+        />
+      ),
     },
     {
       title: 'Created Date',
@@ -52,12 +60,13 @@ export default function Favorite() {
       key: 'actions',
       render: (record) => (
         <div className="button-container">
-        <Button
-          className="button button--main--food rounded"
-        >
-          Delete
-      </Button>
-      </div>
+          <Button
+            className="button button--main--food rounded"
+            onClick={() => handleDeleteProduct(record.id)}
+          >
+            Delete
+          </Button>
+        </div>
       ),
     },
   ];
@@ -66,7 +75,6 @@ export default function Favorite() {
     <Table
       rowClassName="payment-row"
       x={true}
-      // loading={isLoading}
       scroll={{ x: 300 }}
       pagination={{
         position: ['bottomCenter'],
