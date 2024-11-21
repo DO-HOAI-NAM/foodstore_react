@@ -34,7 +34,7 @@ const foodAPI = {
     return axiosClient.post(url, food);
   },
   checkFood(food_id) {
-    const url = `/project/check/${food_id}`;
+    const url = `/products/product/favorite`;
     return axiosClient.get(url);
   },
   commentFood(data) {

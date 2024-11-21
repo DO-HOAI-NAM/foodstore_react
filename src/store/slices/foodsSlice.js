@@ -256,20 +256,23 @@ const foodsSlice = createSlice({
       state.hasError = false;
     },
     [checkFood.fulfilled]: (state, action) => {
-      const watch = action.payload.data.watch;
-      const favorite = action.payload.data.favorite;
-
-      if (action.payload.data.watch) {
-        if (!state.watch.includes(watch)) state.watch.push(watch);
+      const { watch, favorites } = action.payload.data || {};
+    
+      if (watch && !state.watch.includes(watch)) {
+        state.watch.push(watch);
       }
-
-      if (action.payload.data.favorite) {
-        if (!state.watch.includes(favorite)) state.watch.push(favorite);
+    
+      if (favorites) {
+        favorites.forEach((favorite) => {
+          if (!state.favorite.includes(favorite)) {
+            state.favorite.push(favorite);
+          }
+        });
       }
-
+    
       state.isLoading = false;
       state.hasError = false;
-    },
+    },    
     [checkFood.rejected]: (state, action) => {
       message.err(action.error.message, 3);
       state.isLoading = false;
@@ -302,13 +305,16 @@ const foodsSlice = createSlice({
     },
     [addFavorite.fulfilled]: (state, action) => {
       const favorite = action.payload.product_id;
-
-      if (!state.favorite.includes(favorite)) state.favorite.push(favorite);
-
+    
+      if (!state.favorite.includes(favorite)) {
+        state.favorite = [...new Set([...state.favorite, favorite])];
+      }
+    
       message.success("Added favorite to this item successfully");
       state.isLoading = false;
       state.hasError = false;
     },
+    
     [addFavorite.rejected]: (state, action) => {
       message.err(action.error.message, 3);
       state.isLoading = false;
@@ -353,7 +359,6 @@ const foodsSlice = createSlice({
     },
   },
 });
-
 // Selector
 export const selectFoods = (state) => state.foods.foods;
 
@@ -370,6 +375,7 @@ export const selectFoodNeedUpdate = (state) => state.foods.foodNeedUpdate;
 export const selectFoodWatch = (state) => state.foods.watch;
 
 export const selectFoodFavorite = (state) => state.foods.favorite;
+
 
 export const selectFoodIsLoading = (state) => state.foods.isLoading;
 

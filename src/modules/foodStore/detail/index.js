@@ -51,6 +51,7 @@ export default function FoodDetail() {
   useEffect(() => {
     if (food_id) {
       dispatch(fetchOneFood(food_id));
+      dispatch(checkFood(food_id))
     }
   }, [food_id, dispatch]);
 
@@ -58,6 +59,7 @@ export default function FoodDetail() {
   // useEffect(() => {
   //   if (isLogin()) dispatch(checkFood(food_id));
   // }, [food_id, dispatch]);
+
 
   const handleClickFavorite = () => {
     dispatch(addFavorite(food_id));
@@ -122,12 +124,13 @@ export default function FoodDetail() {
                         : "https://img.freepik.com/free-vector/blank-food-cover-white-vector-illustration_1284-41903.jpg?w=360"
                     }
                     alt="current product"
+                    crossOrigin='anonymous'
                   />
                 </div>
               </Col>
               <Col xl={16}>
                 <div className="food-info-container">
-                  <h2 className="food-title">{productNeedUpdate.product_name} ấdđ</h2>
+                  <h2 className="food-title">{productNeedUpdate.product_name}</h2>
                   <div className="rate-container">
                     <div className="stars-list">
                       <span className="num">4.5</span>
@@ -152,7 +155,7 @@ export default function FoodDetail() {
                       <span className="text">Sold</span>
                     </div>
                     <div className="favorite">
-                      {favorites.includes(productNeedUpdate.food_id) ? (
+                      {favorites.includes(productNeedUpdate.id) ? (
                         <AiFillHeart
                           className="icon"
                           onClick={handleClickFavorite}
@@ -276,7 +279,7 @@ export default function FoodDetail() {
                 xl: 10,
               }}
             >
-              <Col xl={18}>
+              <Col xl={24}>
                 <div className="food-info-item">
                   <h2 className="title">Food Description</h2>
                   <p className="description">{productNeedUpdate.description}</p>
