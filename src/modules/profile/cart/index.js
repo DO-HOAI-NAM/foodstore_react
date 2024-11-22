@@ -19,6 +19,7 @@ export default function Cart() {
   const [isShowDelete, setIsShowDelete] = useState(false);
   const [productSelected, setProductSelected] = useState({});
   const cart = useSelector(selectAllItemInCart);
+  console.log('cart', cart)
 
   useEffect(() => {
     dispatch(fetchCart());
@@ -78,7 +79,13 @@ export default function Cart() {
           cart.map((item, index) => (
             <div key={item.id + index} className="cart-item">
               <h3 className="id">{index}</h3>
-              <h3 className="name">{cart.product_name}</h3>
+              <h3 className="name">{item.product_name}</h3>
+              <img
+          crossOrigin="anonymous"
+          style={{ width: '15%' }}
+          alt={item.image}
+          src={`http://localhost:4000/public/uploads/${item.image}`}
+        />
               <h4 className="price">₫{item.price}</h4>
               <h4 className="price">₫{Math.round(item.price / 100 * (100 - item.discount))}</h4>
 

@@ -9,11 +9,11 @@ const userAPI = {
     });
   },
   signUp(newPatient) {
-    const url = `/users`;
+    const url = `/users/user`;
     return axiosClient.post(url, newPatient);
   },
   getOne(id) {
-    const url = `/users/${id}`;
+    const url = `/users/user/${id}`;
     return axiosClient.get(url);
   },
   verify(code) {
@@ -24,15 +24,19 @@ const userAPI = {
     const url = `/patient/resend`;
     return axiosClient.get(url);
   },
-  update(newInformation) {
-    const url = `/users`;
+  update(newInformation, id) {
+    console.log('newIn', newInformation)
+    const url = `/users/user/${id}`;
     return axiosClient.put(url, newInformation, {
       headers: { "Content-Type": "multipart/form-data" },
     });
   },
-  changePassword(password) {
-    const url = `/users/password`;
-    return axiosClient.put(url, password);
+  changePassword({password, id}) {
+    const url = `/users/password/${id}`;
+    return axiosClient.put(url, {
+      password,
+      id,
+    });
   },
 };
 

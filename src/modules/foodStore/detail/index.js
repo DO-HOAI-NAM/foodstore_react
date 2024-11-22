@@ -14,7 +14,7 @@ import { Col, Form, InputNumber, Row } from "antd";
 import Navigation from "../../../components/Navigation";
 import Button from "../../../components/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   addFavorite,
   addWatch,
@@ -38,7 +38,7 @@ export default function FoodDetail() {
   const currentUser = useSelector(selectCurrentUser);
   const favorites = useSelector(selectFoodFavorite);
   const productNeedUpdate = useSelector(selectFoodNeedUpdate);
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   // Fill value to input quantity
   useEffect(() => {
@@ -59,7 +59,7 @@ export default function FoodDetail() {
   // useEffect(() => {
   //   if (isLogin()) dispatch(checkFood(food_id));
   // }, [food_id, dispatch]);
-
+  const navigation = useNavigate()
 
   const handleClickFavorite = () => {
     dispatch(addFavorite(food_id));
@@ -88,6 +88,8 @@ export default function FoodDetail() {
       user_id: currentUser?.data.id,
     };
     dispatch(addItemToCart(data));
+
+    navigation('/profile/cart')
     window.location.reload(false);
 
   };
@@ -218,16 +220,32 @@ export default function FoodDetail() {
                                 <AiOutlineMinus className="icon" />
                               </Button>
                               <Form.Item
-                                name="quantity"
-                                className="quantity-input-container"
-                              >
-                                <InputNumber
-                                  min={0}
-                                  max={productNeedUpdate.stock_quantity}
-                                  controls={false}
-                                  className="input-quantity"
-                                />
-                              </Form.Item>
+    name="quantity"
+    className="quantity-input-container"
+    rules={[
+      {
+        required: true,
+        message: 'Please enter a quantity',
+      },
+      {
+        validator: (_, value) => {
+          if (value < 1) {
+            return Promise.reject(
+              new Error('Quantity must be at least 1')
+            );
+          }
+          return Promise.resolve();
+        },
+      },
+    ]}
+  >
+    <InputNumber
+      min={1}
+      max={productNeedUpdate.stock_quantity}
+      controls={false}
+      className="input-quantity"
+    />
+  </Form.Item>
                               <Button
                                 onClick={handleClickPlus}
                                 disabled={false}

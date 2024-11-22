@@ -71,7 +71,8 @@ export const updateInformation = createAsyncThunk(
   "usersSlice/updateInformation",
   async (newInformation) => {
     try {
-      const result = await userAPI.update(newInformation);
+      console.log(' newInformation.user_id',  newInformation)
+      const result = await userAPI.update(newInformation, newInformation.user_id);
       return result.data;
     } catch (error) {
       return Promise.reject(error);
@@ -102,9 +103,9 @@ export const getIdentity = createAsyncThunk(
 
 export const changePassword = createAsyncThunk(
   "usersSlice/changePassword",
-  async (password) => {
+  async (data) => {
     try {
-      const result = await userAPI.changePassword(password);
+      const result = await userAPI.changePassword(data);
       return result.data;
     } catch (error) {
       return Promise.reject(error.message);

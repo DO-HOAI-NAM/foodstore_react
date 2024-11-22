@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo} from "react";
 import { Col, Row, Form, Input, Select } from "antd";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import Typewriter from "typewriter-effect";
@@ -128,7 +128,12 @@ export default function HomePage() {
   const foodCategory = useSelector(selectCategoryFood);
   const banner = useSelector(selectBanners)
 
-  console.log('banner', banner);
+  const randomFoods = useMemo(() => {
+    if (!foods || foods.length === 0) return [];
+    
+    const shuffled = [...foods].sort(() => 0.5 - Math.random()); // Shuffle the array
+    return shuffled.slice(0, 5); // Take the first 4 items
+  }, [foods]);
   useEffect(() => {
     const fetchData = async () => {
       await Promise.all([
@@ -194,10 +199,10 @@ export default function HomePage() {
         <div className="container-fluid">
           <h3 className="title">Discover Your Next Food</h3>
           <div className="discover-content">
-            <h4 className="heading">New Releases</h4>
+            <h4 className="heading"></h4>
             <div className="grid-product">
-              {saleoff &&
-                saleoff.map((item, index) => (
+              {randomFoods &&
+                randomFoods.map((item, index) => (
                   <Link
                     to={`foods/${item.id}`}
                     className="item"
