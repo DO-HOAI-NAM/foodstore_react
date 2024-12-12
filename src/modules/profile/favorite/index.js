@@ -14,6 +14,7 @@ export default function Favorite() {
   const dispatch = useDispatch();
   const favorites = useSelector(selectFavorites);
 
+  console.log('favorites', favorites)
   const handleDeleteProduct = (id) => {
     dispatch(addFavorite(id))
     console.log(`Deleting product with id: ${id}`);
@@ -62,7 +63,7 @@ export default function Favorite() {
         <div className="button-container">
           <Button
             className="button button--main--food rounded"
-            onClick={() => handleDeleteProduct(record.id)}
+            onClick={() => handleDeleteProduct(record.product_id)}
           >
             Delete
           </Button>

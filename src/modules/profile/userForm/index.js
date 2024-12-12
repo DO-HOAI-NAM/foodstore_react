@@ -72,8 +72,11 @@ export default function UserForm() {
         name: userNeedUpdate.data.name,
         phone: userNeedUpdate.data.phone,
         address: userNeedUpdate.data.address,
+        gender: userNeedUpdate.data.gender
       });
     }
+    console.log('user', userNeedUpdate)
+
   }, [form, userNeedUpdate]);
 
   const handlePreview = (file) => {
@@ -92,16 +95,17 @@ export default function UserForm() {
   console.log('userNeedUpdate', userNeedUpdate);
   const handleSubmit = (values) => {
     const formData = new FormData();
-    formData.append("name", values.last_name);
+    formData.append("name", values.name);
     formData.append("phone", `${values.phone}`);
     formData.append("gender", values.gender);
-    formData.append("date_of_birth", values.date_of_birth.format("YYYY-MM-DD"));
     if (oldImage) {
       formData.append("old_image", oldImage);
       formData.append("avatar", avatar[0]);
     }
     formData.append("user_id", userNeedUpdate.data.id);
+    console.log('test');
 
+    console.log('formData', formData);
     dispatch(updateInformation(formData));
     dispatch(getIdentity());
     window.location.reload(false);
@@ -119,8 +123,6 @@ export default function UserForm() {
         className="userForm"
       >
         {/* Upload */}
-
-
         <Row>
           <Col className="left" sm={24} md={12} lg={12} xl={12} xll={12}>
             {/* Email */}
@@ -139,7 +141,7 @@ export default function UserForm() {
               label="Email"
               name="email"
             >
-              <Input disabled className="input" placeholder={userNeedUpdate.data.email}/>
+              <Input disabled className="input" placeholder={userNeedUpdate.data?.email}/>
             </Form.Item>
 
 
@@ -152,10 +154,10 @@ export default function UserForm() {
                   message: "Please enter your last name!",
                 },
               ]}
-              label="Name Name"
-              name="last_name"
+              label="Name"
+              name="name"
             >
-              <Input className="input" placeholder={userNeedUpdate.data.name} />
+              <Input className="input" placeholder={userNeedUpdate.data?.name} />
             </Form.Item>
 
             {/* Phone */}
@@ -170,14 +172,14 @@ export default function UserForm() {
               label="Phone"
               name="phone"
             >
-              <Input className="input" placeholder={userNeedUpdate.data.phone}  />
+              <Input className="input" placeholder={userNeedUpdate.data?.phone}  />
             </Form.Item>
           </Col>
           <Col className="right" sm={24} md={12} lg={12} xl={12} xll={12}>
             {/* Blood group */}
 
-            {/* Gender */}
-            <Form.Item
+           {/* Gender */}
+           <Form.Item
               label="Gender"
               name="gender"
               className="form-input-group gender"
@@ -189,12 +191,10 @@ export default function UserForm() {
               ]}
             >
               <Radio.Group className="input input-radio">
-                <Radio value="Female">Female</Radio>
-                <Radio value="Male">Male</Radio>
-                <Radio value="Other">Other</Radio>
+                <Radio value={true}>Female</Radio>
+                <Radio value={false}>Male</Radio>
               </Radio.Group>
             </Form.Item>
-
           </Col>
         </Row>
 
